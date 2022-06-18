@@ -1,0 +1,37 @@
+
+
+.HeaderHome {
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;  
+    justify-content: space-between;
+    background-color: #42c3a7;
+    
+}
+h1 {
+    font-size: 1em;
+}
+.LogoHome {
+    color: #182748;
+    padding: 0 0 0 1% ;
+    
+}
+
+ul {
+    width: 50%;
+    padding: 0;
+    margin-left: auto;
+}
+
+ul li {
+    display: inline-block;
+    padding: 0 5% 0 5%;;
+}
+
+a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
