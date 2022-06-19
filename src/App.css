@@ -1,5 +1,15 @@
 .app {
   margin: 0;
   padding: 0;
- background-color: blue;
+ 
+}
+
+main {
+  width: 90%;
+  margin: auto;
+  background-color: #F9FAFC;
+}
+
+h2 {
+  text-align: center;
 }

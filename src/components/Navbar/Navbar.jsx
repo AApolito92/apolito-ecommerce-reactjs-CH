@@ -1,9 +1,10 @@
 import React from 'react'
 import FilterVintageTwoToneIcon from '@mui/icons-material/FilterVintageTwoTone';
 import './Navbar.css';
+import { CartWidget } from './CartWidget/CartWidget';
 export const Navbar = () => {
   return (
-    <div>
+    <>
         <div className='HeaderHome'>
             
             <div className='LogoHome'>
@@ -15,9 +16,11 @@ export const Navbar = () => {
                 <li><a href="#">Tienda</a></li>
                 <li><a href="#">Nosotros</a></li>
                 <li><a href="#">Contacto</a></li>
+                <li><a href="#"><CartWidget/></a></li>
             </ul>
-           
+            
+            
     </div>
-    </div>
+    </>
   )
 }
