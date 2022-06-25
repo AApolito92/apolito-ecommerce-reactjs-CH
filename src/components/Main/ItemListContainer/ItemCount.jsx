@@ -31,7 +31,7 @@ export const ItemCount = ({Producto,inicial, stock, total}) => {
     alert("no hay stock")
   } else{
   stock -= contador
-  console.log(stock + " stock despues de compra")
+  console.log(stock + " stock despues de la compra")
   total +=contador;
   console.log(total +" comprado");
   setContador(1);
