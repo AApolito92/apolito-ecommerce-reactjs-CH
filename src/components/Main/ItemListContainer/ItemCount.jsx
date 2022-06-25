@@ -1,0 +1,55 @@
+import React from 'react'
+import { useState } from 'react'
+
+export const ItemCount = ({Producto,inicial, stock, total}) => {
+
+  console.log(stock + " estado inicial")
+
+  const [contador, setContador] = useState(inicial) 
+    
+ const HandlerMinus = () => {
+    if( (contador > 1) && (contador < stock))  {
+      setContador( contador -1)
+     
+      }
+       else {
+        console.log("error")
+      }
+  }
+  const HandlerAdd = () => {
+    if( (contador >= 1) && (contador < stock))  {
+      setContador( contador +1)
+      
+      } 
+      else {
+        console.log("error")
+      }
+ }
+
+ const onAdd = () => {
+  if (contador > stock) {
+    alert("no hay stock")
+  } else{
+  stock -= contador
+  console.log(stock + " stock despues de compra")
+  total +=contador;
+  console.log(total +" comprado");
+  setContador(1);
+}
+
+ }
+
+
+  return (
+    <div>
+        <div className='itemCard'>
+            <p>{Producto}</p>
+            <div>
+            <button onClick={HandlerMinus}>-</button><span>{contador}</span><button onClick={HandlerAdd}>+</button>
+            </div>
+            <button onClick={onAdd}>Agregar</button>
+            
+        </div>
+    </div>
+  )
+}

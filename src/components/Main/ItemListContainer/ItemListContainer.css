@@ -1,0 +1,21 @@
+.productContainer {
+    width: 95%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: auto;
+    justify-content: space-around;
+    
+}
+
+.itemCard {
+    padding: 10%;
+    width: 90%;
+    border: 1px solid black;
+    text-align: center;
+    border-radius: 5%;
+    display: flex;
+    flex-direction: column;
+    
+}
+
