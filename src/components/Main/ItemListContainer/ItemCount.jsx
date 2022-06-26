@@ -5,11 +5,11 @@ export const ItemCount = ({Producto,inicial, stock, total}) => {
 
   console.log(stock + " estado inicial")
 
-  const [contador, setContador] = useState(inicial) 
+  const [contador, setContador] = useState(inicial) ;
     
  const HandlerMinus = () => {
     if( (contador > 1) && (contador < stock))  {
-      setContador( contador -1)
+      setContador( contador - 1)
      
       }
        else {
@@ -18,7 +18,7 @@ export const ItemCount = ({Producto,inicial, stock, total}) => {
   }
   const HandlerAdd = () => {
     if( (contador >= 1) && (contador < stock))  {
-      setContador( contador +1)
+      setContador( contador + 1)
       
       } 
       else {
@@ -34,7 +34,7 @@ export const ItemCount = ({Producto,inicial, stock, total}) => {
   console.log(stock + " stock despues de la compra")
   total +=contador;
   console.log(total +" comprado");
-  setContador(1);
+  setContador(inicial);
 }
 
  }
