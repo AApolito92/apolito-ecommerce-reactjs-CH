@@ -1,7 +1,21 @@
 import React from 'react'
+import Items from '../item/Items'
 
-export default function ItemList() {
+const ItemList = ({productList}) => {
+  console.log(productList, "el array prop")
+
+
+
   return (
-    <div>ItemList</div>
+    
+    <div>
+      
+    <div className='itemsHolder'>
+      
+        {productList.map((product)=> <Items key={product.id} product={product}/>)}
+    </div>
+    </div>
   )
 }
+
+export default ItemList

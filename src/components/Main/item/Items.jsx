@@ -1,7 +1,19 @@
 import React from 'react'
 
-export default function Items() {
+const Items = ({product}) => {
+
+  const {img,name,detail} = product
+
   return (
-    <div>Items</div>
+    <div className='itemCard'>
+      <img src={img} alt={name} />
+      <div>
+        <p>{name}</p>
+        <p>{detail}</p>
+      </div>
+        <button>ver más</button>
+    </div>
   )
 }
+
+export default Items

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 
-export const ItemCount = ({Producto,inicial, stock, total}) => {
+export const ItemCount = ({producto,inicial, stock, total}) => {
 
   console.log(stock + " estado inicial")
 
@@ -43,7 +43,7 @@ export const ItemCount = ({Producto,inicial, stock, total}) => {
   return (
     <div>
         <div className='itemCard'>
-            <p>{Producto}</p>
+            <p>{producto}</p>
             <div>
             <button onClick={HandlerMinus}>-</button><span>{contador}</span><button onClick={HandlerAdd}>+</button>
             </div>
