@@ -3,7 +3,7 @@ import { useState,useEffect } from 'react';
 import ItemList from './ItemList';
 import './ItemListContainer.css'
 import { getData } from '../../../mocks/fakeApi';
-
+import ItemDetailContainer from './ItemDetailContainer/ItemDetailContainer';
 
 
 export const ItemListContainer = ({greeting}) => {
@@ -27,7 +27,10 @@ export const ItemListContainer = ({greeting}) => {
         <h3>Productos</h3>
         <div className='productContainer'>
 
-       { mostrar ? <p>Loading...</p> : <ItemList productList={productList}/>}            
+       { mostrar ? <p>Loading...</p> : <ItemList productList={productList}/>}   
+
+       { mostrar ? <p>Loading detail...</p> : <ItemDetailContainer/>  }   
+             
           
         </div>
     </div>

@@ -1,15 +1,15 @@
 import React from 'react'
 
 const Items = ({product}) => {
+  //console.log (product,"log item")
 
-  const {img,name,detail} = product
+  const {img,name,id} = product
 
   return (
     <div className='itemCard'>
       <img src={img} alt={name} />
-      <div>
+      <div id={id}>
         <p>{name}</p>
-        <p>{detail}</p>
       </div>
         <button>ver más</button>
     </div>

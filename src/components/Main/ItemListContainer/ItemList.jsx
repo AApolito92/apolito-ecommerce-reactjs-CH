@@ -2,10 +2,7 @@ import React from 'react'
 import Items from '../item/Items'
 
 const ItemList = ({productList}) => {
-  console.log(productList, "el array prop")
-
-
-
+  console.log(productList, "array item list")
   return (
     
     <div>
