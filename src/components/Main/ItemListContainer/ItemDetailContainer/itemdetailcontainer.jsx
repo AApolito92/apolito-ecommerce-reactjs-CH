@@ -19,6 +19,9 @@ function Itemdetailcontainer() {
         .catch((error)=> console.log(error))              
       },[])
 
+
+
+      
       console.log(itemDetail, "log filtrado")
 
       

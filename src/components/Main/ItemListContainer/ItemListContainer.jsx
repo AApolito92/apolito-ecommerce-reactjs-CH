@@ -3,7 +3,7 @@ import { useState,useEffect } from 'react';
 import ItemList from './ItemList';
 import './ItemListContainer.css'
 import { getData } from '../../../mocks/fakeApi';
-import ItemDetailContainer from './ItemDetailContainer/Itemdetailcontainer';
+import ItemDetailContainer from './ItemDetailContainer/ItemDetailContainer';
 
 
 export const ItemListContainer = ({greeting}) => {
