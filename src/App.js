@@ -1,6 +1,6 @@
 import './App.css';
 import { Header } from './components/Header/Header';
-import MainContainer from './components/Main/MainContainer';
+import { ItemListContainer } from './components/Main/ItemListContainer/ItemListContainer';
 import {
   BrowserRouter,
   Routes,
@@ -13,8 +13,8 @@ function App() {
         
         <Header/>
         
+      <ItemListContainer greeting = "Sileno GrowShop"/>
        
-       <MainContainer/>
        
 
         
