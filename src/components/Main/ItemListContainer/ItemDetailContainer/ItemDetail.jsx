@@ -1,11 +1,12 @@
 import React from 'react'
 import "./itemDetail.css"
+import { ItemCount } from '../ItemCount';
 
 const ItemDetail = ({itemDetail}) => {
     
    
 
-  const {name,id,detail,img,precio} = itemDetail;
+  const {name,id,detail,img,precio,stock} = itemDetail;
 
 
    // console.log(img,name,id)
@@ -20,6 +21,8 @@ const ItemDetail = ({itemDetail}) => {
         <p>{name}</p>
         <p>{detail}</p>
         <p>${precio}</p>
+        <ItemCount stock={stock}inicial={1}/>
+
         </div>
         </div>
     </div>

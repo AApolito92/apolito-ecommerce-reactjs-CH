@@ -7,6 +7,7 @@ import ItemDetail from './ItemDetail'
 function Itemdetailcontainer() {
 
     const [itemDetail, setItemDetail] = useState ([])
+    const [mostrar, setMostrar] = useState(true) 
     
 
     useEffect (()=> {
@@ -16,7 +17,8 @@ function Itemdetailcontainer() {
             filtrado = res.filter(el => el.name === "Sileno weed")         
             setItemDetail(filtrado)
         })        
-        .catch((error)=> console.log(error))              
+        .catch((error)=> console.log(error))      
+        .finally (() => setMostrar (false))        
       },[])
 
 
@@ -30,7 +32,11 @@ function Itemdetailcontainer() {
 
 
     <div>
-       {itemDetail.map((itemDet)=><ItemDetail key ={itemDet.id}itemDetail= {itemDet}/> )}   
+    
+
+       { mostrar ? <p>Loading detalle...</p> : itemDetail.map((itemDet)=><ItemDetail key ={itemDet.id}itemDetail= {itemDet}/> )}   
+
+
     </div>
   )
 }

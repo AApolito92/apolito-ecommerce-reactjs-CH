@@ -2,21 +2,28 @@ import React from 'react'
 import FilterVintageTwoToneIcon from '@mui/icons-material/FilterVintageTwoTone';
 import './Navbar.css';
 import { CartWidget } from './CartWidget/CartWidget';
+import { Link } from 'react-router-dom';
 export const Navbar = () => {
+
+
+
+
+
   return (
     <>
         <div className='HeaderHome'>
             
             <div className='LogoHome'>
-                <FilterVintageTwoToneIcon/> 
+                <Link to="/"><FilterVintageTwoToneIcon/> </Link>
             </div>
             <h1>Sileno Growshop</h1>
             <ul>
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Tienda</a></li>
-                <li><a href="#">Nosotros</a></li>
-                <li><a href="#">Contacto</a></li>
-                <li><a href="#"><CartWidget/></a></li>
+                <Link to="/">Inicio</Link>
+                <Link to="/categoria/Plantas">Plantas</Link>
+                <Link to="/categoria/Seeds">Seeds</Link>
+                <Link to="/categoria/Indoor">Indoor</Link>
+                <Link to="/categoria/StonerStuff">Stoner Stuff</Link>
+                <Link to="/cart"><CartWidget/></Link>
             </ul>
             
             

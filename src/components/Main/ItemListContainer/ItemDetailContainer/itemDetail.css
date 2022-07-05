@@ -4,5 +4,9 @@
     margin: auto;
     padding-top: 2%;
     border-radius: 2%;
+    text-align: center;
 }
 
+p {
+    text-align: center;
+}
