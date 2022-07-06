@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import { getData} from '../../../../mocks/fakeApi'
+import { useParams } from 'react-router-dom'
+import { getDataProd } from '../../../../mocks/fakeApi'
 import ItemDetail from './ItemDetail'
 
 
@@ -9,24 +10,17 @@ function Itemdetailcontainer() {
     const [itemDetail, setItemDetail] = useState ([])
     const [mostrar, setMostrar] = useState(true) 
     
+    const {id} = useParams()
 
     useEffect (()=> {
-      let filtrado =[] ;
-        getData
-        .then((res)=>{            
-            filtrado = res.filter(el => el.name === "Sileno weed")         
-            setItemDetail(filtrado)
-        })        
+      
+      getDataProd (id)
+        .then((res) =>{setItemDetail(res)}   ,
+        console.log(itemDetail,"bo")             
+        )        
         .catch((error)=> console.log(error))      
         .finally (() => setMostrar (false))        
-      },[])
-
-
-
-      
-      console.log(itemDetail, "log filtrado")
-
-      
+      },[id])      
 
   return (
 
@@ -34,7 +28,7 @@ function Itemdetailcontainer() {
     <div>
     
 
-       { mostrar ? <p>Loading detalle...</p> : itemDetail.map((itemDet)=><ItemDetail key ={itemDet.id}itemDetail= {itemDet}/> )}   
+       { mostrar ? <p>Loading detalle...</p> : <ItemDetail itemDetail= {itemDetail}/> }   
 
 
     </div>

@@ -16,7 +16,7 @@ export const Navbar = () => {
             <div className='LogoHome'>
                 <Link to="/"><FilterVintageTwoToneIcon/> </Link>
             </div>
-            <h1>Sileno Growshop</h1>
+            <Link to="/"> <h1>Sileno Growshop</h1> </Link>
             <ul>
                 <Link to="/">Inicio</Link>
                 <Link to="/categoria/Plantas">Plantas</Link>

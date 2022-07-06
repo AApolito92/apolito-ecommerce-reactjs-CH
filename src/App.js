@@ -7,7 +7,6 @@ import {
   BrowserRouter,
   Routes,
   Route,
-  useParams,
 } from "react-router-dom";
 
 function App() {
@@ -23,7 +22,7 @@ function App() {
           <Routes>
             <Route path='/' element = {<ItemListContainer greeting = "Sileno GrowShop"/>}/>
             <Route path='/categoria/:categoriaId' element = {<ItemListContainer  greeting = "Sileno GrowShop"/>}/>
-            <Route path='/detail/:Id' element = {<Itemdetailcontainer/>}/>
+            <Route path='/detail/:id' element = {<Itemdetailcontainer/>}/>
             <Route path='/cart' element = {<Cart/>}/>            
           </Routes>
       </BrowserRouter>

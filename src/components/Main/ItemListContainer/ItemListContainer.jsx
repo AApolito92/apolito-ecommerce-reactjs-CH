@@ -3,20 +3,25 @@ import { useState,useEffect } from 'react';
 import ItemList from './ItemList';
 import './ItemListContainer.css'
 import { getData } from '../../../mocks/fakeApi';
+import { useParams } from 'react-router-dom';
 
 
 export const ItemListContainer = ({greeting}) => {
 
-  const [productList, setProductList] = useState ([])
-  const [mostrar, setMostrar] = useState(true)  
+  const [productList, setProductList] = useState ([]);
+  const [mostrar, setMostrar] = useState(true)  ;
+
+  const {categoriaId} = useParams();
+
+
 
   useEffect (()=> {
-    getData
+    getData(categoriaId)
     .then((res)=> setProductList(res))
     .catch((error)=> console.log(error))
     .finally(()=>setMostrar(false))
     
-  },[])
+  },[categoriaId])
   
   console.log(productList)
 

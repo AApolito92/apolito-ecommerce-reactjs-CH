@@ -6,12 +6,12 @@ const ItemList = ({productList}) => {
   
   return (
     
-    <div>
-      
-    <div className='itemsHolder'>
-      
-        {productList.map((product)=> <Items key={product.id} product={product}/>)}
-    </div>
+    <div>      
+      <div className='itemsHolder'>
+
+          {productList.map((product)=> <Items key={product.id} product={product}/>)}
+          
+      </div>
     </div>
   )
 }

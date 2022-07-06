@@ -5,12 +5,10 @@ import { ItemCount } from '../ItemCount';
 const ItemDetail = ({itemDetail}) => {
     
    
+console.log(itemDetail,"bo");
 
-  const {name,id,detail,img,precio,stock} = itemDetail;
-
-
-   // console.log(img,name,id)
-
+const {img,name,id,detail,precio,stock,inicial} = itemDetail
+   
    
 
   return (
