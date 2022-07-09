@@ -1,14 +1,25 @@
 import React from 'react'
 import "./itemDetail.css"
 import { ItemCount } from '../ItemCount';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const ItemDetail = ({itemDetail}) => {
     
    
-console.log(itemDetail,"bo");
+console.log(itemDetail,"bo detail");
 
 const {img,name,id,detail,precio,stock,inicial} = itemDetail
-   
+
+const [finalizar, setFinalizar] = useState(false) ;
+
+
+const onAdd = (cantidad) => {
+
+  console.log(`Compraste ${cantidad} unidades`);
+  setFinalizar(true);
+ }
+
    
 
   return (
@@ -19,7 +30,9 @@ const {img,name,id,detail,precio,stock,inicial} = itemDetail
         <p>{name}</p>
         <p>{detail}</p>
         <p>${precio}</p>
-        <ItemCount stock={stock}inicial={1}/>
+
+        {finalizar ? <Link to="/cart"> <button>Finalizar compra</button> </Link> : <ItemCount stock={stock} inicial={1} onAdd={onAdd}/> }
+        
 
         </div>
         </div>

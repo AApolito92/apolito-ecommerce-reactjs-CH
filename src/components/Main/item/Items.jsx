@@ -12,7 +12,7 @@ const Items = ({product}) => {
       <div id={id}>
         <p>{name}</p>
       </div>
-        <Link to={`/detail/${id}`}>ver más</Link>
+        <Link to={`/detail/${id}`}> <button> ver más</button></Link>
     </div>
   )
 }

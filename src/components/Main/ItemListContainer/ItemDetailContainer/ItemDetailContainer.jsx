@@ -16,9 +16,10 @@ function Itemdetailcontainer() {
       
       getDataProd (id)
         .then((res) =>{setItemDetail(res)}   ,
-        console.log(itemDetail,"bo")             
+        console.log(itemDetail,"bo container")             
         )        
-        .catch((error)=> console.log(error))      
+        .catch((error)=> console.log(error))  
+            
         .finally (() => setMostrar (false))        
       },[id])      
 

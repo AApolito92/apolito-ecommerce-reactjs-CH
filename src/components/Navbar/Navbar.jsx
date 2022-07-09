@@ -3,11 +3,8 @@ import FilterVintageTwoToneIcon from '@mui/icons-material/FilterVintageTwoTone';
 import './Navbar.css';
 import { CartWidget } from './CartWidget/CartWidget';
 import { Link } from 'react-router-dom';
+
 export const Navbar = () => {
-
-
-
-
 
   return (
     <>
