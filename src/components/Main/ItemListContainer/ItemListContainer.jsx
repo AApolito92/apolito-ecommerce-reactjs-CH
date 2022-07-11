@@ -5,7 +5,6 @@ import './ItemListContainer.css'
 import { getData } from '../../../mocks/fakeApi';
 import { useParams } from 'react-router-dom';
 
-
 export const ItemListContainer = ({greeting}) => {
 
   const [productList, setProductList] = useState ([]);
@@ -22,8 +21,7 @@ export const ItemListContainer = ({greeting}) => {
     .finally(()=>setMostrar(false))
     
   },[categoriaId])
-  
-  console.log(productList)
+ 
 
   return (
     <div>

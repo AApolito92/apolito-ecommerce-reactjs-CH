@@ -1,13 +1,13 @@
 import React from 'react'
 import { useState } from 'react'
 
-export const ItemCount = ({inicial, stock, total, onAdd}) => {
+export const ItemCount = ({inicial, stock, onAdd}) => {
 
-  console.log(stock + " estado inicial")
+  //console.log(stock + " estado inicial")
 
   const [contador, setContador] = useState(inicial) ;
 
-  console.log(contador, "contador bo")
+  //console.log(contador, "contador bo")
     
  const HandlerMinus = () => {
     if( contador > 1)  {
@@ -29,8 +29,7 @@ export const ItemCount = ({inicial, stock, total, onAdd}) => {
  }
 
  const agregarCantidad = () => {
-  onAdd(contador);
-  
+   onAdd(contador);  
 }
 
 

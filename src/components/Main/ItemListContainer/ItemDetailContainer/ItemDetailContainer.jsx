@@ -15,8 +15,7 @@ function Itemdetailcontainer() {
     useEffect (()=> {
       
       getDataProd (id)
-        .then((res) =>{setItemDetail(res)}   ,
-        console.log(itemDetail,"bo container")             
+        .then((res) =>{setItemDetail(res)}                    
         )        
         .catch((error)=> console.log(error))  
             

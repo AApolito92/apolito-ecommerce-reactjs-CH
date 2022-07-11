@@ -1,23 +1,26 @@
 import React from 'react'
 import "./itemDetail.css"
 import { ItemCount } from '../ItemCount';
-import { useState } from 'react';
+import { useState,useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { contextoCarrito } from '../../Context/ContextCart';
+
 
 const ItemDetail = ({itemDetail}) => {
-    
-   
-console.log(itemDetail,"bo detail");
 
-const {img,name,id,detail,precio,stock,inicial} = itemDetail
+const {img,name,id,detail,precio,stock} = itemDetail
 
 const [finalizar, setFinalizar] = useState(false) ;
 
+const {addItem} = useContext(contextoCarrito);
 
-const onAdd = (cantidad) => {
 
+const onAdd = (cantidad) => {  
+  console.log(cantidad ,"cantidad tipo waat")
   console.log(`Compraste ${cantidad} unidades`);
   setFinalizar(true);
+  const newItem = {...itemDetail, qty: cantidad }
+  addItem(newItem,cantidad)
  }
 
    

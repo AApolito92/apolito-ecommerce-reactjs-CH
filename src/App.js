@@ -8,6 +8,9 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
+import CustomProvider from './components/Main/Context/ContextCart';
+
+
 
 function App() {
 
@@ -15,22 +18,20 @@ function App() {
 
 
   return (
-    <div className="App">
-        
-      <BrowserRouter>        
-        <Navbar/>
+  
+   
+      <BrowserRouter> 
+        <CustomProvider>        
+        <Navbar/>        
           <Routes>
             <Route path='/' element = {<ItemListContainer greeting = "Sileno GrowShop"/>}/>
             <Route path='/categoria/:categoriaId' element = {<ItemListContainer  greeting = "Sileno GrowShop"/>}/>
             <Route path='/detail/:id' element = {<Itemdetailcontainer/>}/>
             <Route path='/cart' element = {<Cart/>}/>            
-          </Routes>
-      </BrowserRouter>
-       
-
-        
-      
-    </div>
+          </Routes> 
+        </CustomProvider>       
+      </BrowserRouter>            
+   
   );
 }
 
