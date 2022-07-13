@@ -1,14 +1,27 @@
 import React from 'react'
 import "./itemDetail.css"
+import { ItemCount } from '../ItemCount';
+import { useState,useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { contextoCarrito } from '../../Context/ContextCart';
+
 
 const ItemDetail = ({itemDetail}) => {
-    
-   
 
-  const {name,id,detail,img,precio} = itemDetail;
+const {img,name,id,detail,precio,stock} = itemDetail
+
+const [finalizar, setFinalizar] = useState(false) ;
+
+const {addItem} = useContext(contextoCarrito);
 
 
-   // console.log(img,name,id)
+const onAdd = (cantidad) => {  
+  console.log(cantidad ,"cantidad tipo waat")
+  console.log(`Compraste ${cantidad} unidades`);
+  setFinalizar(true);
+  const newItem = {...itemDetail, qty: cantidad }
+  addItem(newItem,cantidad)
+ }
 
    
 
@@ -20,6 +33,10 @@ const ItemDetail = ({itemDetail}) => {
         <p>{name}</p>
         <p>{detail}</p>
         <p>${precio}</p>
+
+        {finalizar ? <Link to="/cart"> <button>Finalizar compra</button> </Link> : <ItemCount stock={stock} inicial={1} onAdd={onAdd}/> }
+        
+
         </div>
         </div>
     </div>

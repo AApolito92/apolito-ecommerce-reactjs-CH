@@ -1,7 +1,14 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+
 
 const Items = ({product}) => {
-  //console.log (product,"log item")
+  
+
+
+
+//console.log(product,"producto")
+
 
   const {img,name,id} = product
 
@@ -11,7 +18,7 @@ const Items = ({product}) => {
       <div id={id}>
         <p>{name}</p>
       </div>
-        <button>ver más</button>
+        <Link to={`/detail/${id}`}> <button> ver más</button></Link>
     </div>
   )
 }
