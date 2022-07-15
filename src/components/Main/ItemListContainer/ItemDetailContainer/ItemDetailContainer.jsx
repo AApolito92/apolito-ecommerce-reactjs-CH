@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { getDataProd } from '../../../../mocks/fakeApi'
 import ItemDetail from './ItemDetail'
+import { db } from '../../../../firebase/firebase'
+import {doc, getDoc, collection} from "firebase/firestore"
 
 
 function Itemdetailcontainer() {
