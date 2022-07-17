@@ -1,29 +1,15 @@
 import React from 'react'
 import { useState } from 'react'
 
-<<<<<<< HEAD
 export const ItemCount = ({Producto,inicial, stock, total}) => {
-=======
-export const ItemCount = ({inicial, stock, onAdd}) => {
->>>>>>> ab34a7aa13bc008eadb122c630fdaade80695ad6
 
   //console.log(stock + " estado inicial")
 
-<<<<<<< HEAD
   const [contador, setContador] = useState(inicial) 
     
  const HandlerMinus = () => {
     if( (contador > 1) && (contador < stock))  {
       setContador( contador -1)
-=======
-  const [contador, setContador] = useState(inicial) ;
-
-  //console.log(contador, "contador bo")
-    
- const HandlerMinus = () => {
-    if( contador > 1)  {
-      setContador( contador - 1)
->>>>>>> ab34a7aa13bc008eadb122c630fdaade80695ad6
      
       }
        else {
@@ -31,13 +17,8 @@ export const ItemCount = ({inicial, stock, onAdd}) => {
       }
   }
   const HandlerAdd = () => {
-<<<<<<< HEAD
     if( (contador >= 1) && (contador < stock))  {
       setContador( contador +1)
-=======
-    if( contador < stock)  {
-      setContador( contador + 1)
->>>>>>> ab34a7aa13bc008eadb122c630fdaade80695ad6
       
       } 
       else {
@@ -45,7 +26,6 @@ export const ItemCount = ({inicial, stock, onAdd}) => {
       }
  }
 
-<<<<<<< HEAD
  const onAdd = () => {
   if (contador > stock) {
     alert("no hay stock")
@@ -55,22 +35,14 @@ export const ItemCount = ({inicial, stock, onAdd}) => {
   total +=contador;
   console.log(total +" comprado");
   setContador(1);
-=======
- const agregarCantidad = () => {
-   onAdd(contador);  
->>>>>>> ab34a7aa13bc008eadb122c630fdaade80695ad6
-}
+}}
 
 
 
   return (
     <div>
-<<<<<<< HEAD
         <div className='itemCard'>
             <p>{Producto}</p>
-=======
-        <div className='itemCardCount'>            
->>>>>>> ab34a7aa13bc008eadb122c630fdaade80695ad6
             <div>
             <button onClick={HandlerMinus}>-</button><span>{contador}</span><button onClick={HandlerAdd}>+</button>
             </div>
@@ -79,4 +51,4 @@ export const ItemCount = ({inicial, stock, onAdd}) => {
         </div>
     </div>
   )
-}
+  }

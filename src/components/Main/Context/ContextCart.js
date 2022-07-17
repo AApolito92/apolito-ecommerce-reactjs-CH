@@ -9,6 +9,7 @@ const CustomProvider = ({children}) => {
 
     const [cartProductList, setProductList] = useState([]);
     const [qtyProduct, setQtyProducts] = useState(0);
+    const [totalPrice, setTotalPrice] = useState(0);
 
 
     useEffect(() => {
@@ -38,8 +39,11 @@ const CustomProvider = ({children}) => {
     }
     const getQtyProd = () => {
         let qty = 0 ;
+        let precio = 0;
         cartProductList.forEach(product => qty += product.qty);        
-        setQtyProducts(qty)
+        setQtyProducts(qty);
+        cartProductList.forEach(product => precio += product.precio); 
+        setTotalPrice(precio);
     }
     const cleanCart = () => {
         setProductList([]);
