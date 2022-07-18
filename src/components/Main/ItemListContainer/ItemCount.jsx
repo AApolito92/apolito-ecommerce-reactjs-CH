@@ -1,15 +1,17 @@
 import React from 'react'
 import { useState } from 'react'
 
-export const ItemCount = ({Producto,inicial, stock, total}) => {
+export const ItemCount = ({inicial, stock, onAdd}) => {
 
   //console.log(stock + " estado inicial")
 
-  const [contador, setContador] = useState(inicial) 
+  const [contador, setContador] = useState(inicial) ;
+
+  //console.log(contador, "contador bo")
     
  const HandlerMinus = () => {
-    if( (contador > 1) && (contador < stock))  {
-      setContador( contador -1)
+    if( contador > 1)  {
+      setContador( contador - 1)
      
       }
        else {
@@ -17,8 +19,8 @@ export const ItemCount = ({Producto,inicial, stock, total}) => {
       }
   }
   const HandlerAdd = () => {
-    if( (contador >= 1) && (contador < stock))  {
-      setContador( contador +1)
+    if( contador < stock)  {
+      setContador( contador + 1)
       
       } 
       else {
@@ -26,23 +28,15 @@ export const ItemCount = ({Producto,inicial, stock, total}) => {
       }
  }
 
- const onAdd = () => {
-  if (contador > stock) {
-    alert("no hay stock")
-  } else{
-  stock -= contador
-  console.log(stock + " stock despues de la compra")
-  total +=contador;
-  console.log(total +" comprado");
-  setContador(1);
-}}
+ const agregarCantidad = () => {
+   onAdd(contador);  
+}
 
 
 
   return (
     <div>
-        <div className='itemCard'>
-            <p>{Producto}</p>
+        <div className='itemCardCount'>            
             <div>
             <button onClick={HandlerMinus}>-</button><span>{contador}</span><button onClick={HandlerAdd}>+</button>
             </div>
@@ -51,4 +45,4 @@ export const ItemCount = ({Producto,inicial, stock, total}) => {
         </div>
     </div>
   )
-  }
+}

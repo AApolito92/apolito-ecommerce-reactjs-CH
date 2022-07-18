@@ -14,6 +14,7 @@ const CustomProvider = ({children}) => {
 
     useEffect(() => {
         getQtyProd();    
+        console.log(totalPrice)
     }, [cartProductList])
 
     const addItem = (item,qty) => {
@@ -42,7 +43,7 @@ const CustomProvider = ({children}) => {
         let precio = 0;
         cartProductList.forEach(product => qty += product.qty);        
         setQtyProducts(qty);
-        cartProductList.forEach(product => precio += product.precio); 
+        cartProductList.forEach(product => precio += (product.precio*product.qty)); 
         setTotalPrice(precio);
     }
     const cleanCart = () => {
@@ -53,7 +54,7 @@ const CustomProvider = ({children}) => {
  
 
   return (
-    <Provider value={{cartProductList,addItem,deleteItem,getQtyProd,cleanCart}}>
+    <Provider value={{cartProductList,addItem,deleteItem,getQtyProd,cleanCart,totalPrice,qtyProduct}}>
     {children}
     </Provider>
   )
