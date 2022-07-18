@@ -31,6 +31,9 @@ const CustomProvider = ({children}) => {
         }
     }
     const deleteItem = (id) => {
+
+        //agregar logica similar a add item para poder eliminar unidades de items y no item completo 
+
         setProductList(cartProductList.filter(product => product.id !== id));        
     }
     const isInCart = (id) => {

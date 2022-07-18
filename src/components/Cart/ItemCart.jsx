@@ -14,8 +14,7 @@ function itemCart({producto, deleteItem }) {
 
   return (
     <div>
-        <p>{name}</p>
-        <p>{qty}</p>
+        <p>{name} x {qty}</p>
         <p>total: {(qty*precio)}</p>
         <button onClick={HandlerDelete}>Eliminar item</button>        
     </div>
