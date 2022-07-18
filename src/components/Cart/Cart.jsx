@@ -19,7 +19,7 @@ function Cart() {
   return (
     
     <>
-    {cartProductList.length === 0? <p>No hay productos en el carrito pasa por <Link to="/"> ACA</Link></p> : cartProductList.map((product)=> <ItemCart key={product.id} producto={product} deleteItem={deleteItem}/>)}
+    {cartProductList.length === 0? <p>No hay productos en el carrito pasa por <Link to="/"> ACA </Link></p> : cartProductList.map((product)=> <ItemCart key={product.id} producto={product} deleteItem={deleteItem}/>)}
 
     <p>Total compra:{totalPrice} </p>
     </>
