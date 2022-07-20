@@ -15,9 +15,9 @@ import CustomProvider from './components/Main/Context/ContextCart';
 function App() {
   return (
   
-    <CustomProvider> 
+    
       <BrowserRouter> 
-              
+       <CustomProvider>        
         <Navbar/>        
           <Routes>
             <Route path='/' element = {<ItemListContainer greeting = "Sileno GrowShop"/>}/>
@@ -25,9 +25,9 @@ function App() {
             <Route path='/detail/:id' element = {<Itemdetailcontainer/>}/>
             <Route path='/cart' element = {<Cart/>}/>            
           </Routes> 
-              
+       </CustomProvider>         
       </BrowserRouter>  
-      </CustomProvider>          
+              
    
   );
 }

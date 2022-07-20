@@ -12,7 +12,7 @@ const firebaseConfig = {
   storageBucket: "coderhouse-react-a6886.appspot.com",
   messagingSenderId: "857524384643",
   appId: "1:857524384643:web:cdf2a9156ac3bef699bcb6"
-}; 
+};
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);

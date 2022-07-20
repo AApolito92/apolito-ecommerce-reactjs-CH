@@ -5,7 +5,7 @@ import './ItemListContainer.css'
 import { getData } from '../../../mocks/fakeApi';
 import { useParams } from 'react-router-dom';
 import { db } from '../../../firebase/firebase';
-import {getDocs, collection, query} from "firebase/firestore"
+import {getDocs, collection, query,where} from "firebase/firestore"
 
 export const ItemListContainer = ({greeting}) => {
 
@@ -20,14 +20,15 @@ export const ItemListContainer = ({greeting}) => {
 
     const productListCollection = collection(db,"productCollection");
     getDocs(productListCollection)
-    .then (res => {console.log(res.docs)
+
+    .then (res => {console.log(res.docs, "<- log res.doc", res, "<-log res",) 
 
     })
 
-    getData(categoriaId)
-    .then((res)=> setProductList(res))
-    .catch((error)=> console.log(error))
-    .finally(()=>setMostrar(false))
+    // getData(categoriaId)
+    // .then((res)=> setProductList(res))
+    // .catch((error)=> console.log(error))
+    // .finally(()=>setMostrar(false))
     
   },[categoriaId])
  
