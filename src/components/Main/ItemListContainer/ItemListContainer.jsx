@@ -2,7 +2,6 @@ import React from 'react';
 import { useState,useEffect } from 'react';
 import ItemList from './ItemList';
 import './ItemListContainer.css'
-import { getData } from '../../../mocks/fakeApi';
 import { useParams } from 'react-router-dom';
 import { db } from '../../../firebase/firebase';
 import {getDocs, collection, query,where} from "firebase/firestore"
@@ -13,24 +12,43 @@ export const ItemListContainer = ({greeting}) => {
   const [mostrar, setMostrar] = useState(true)  ;
   const {categoriaId} = useParams();
 
+  console.log (categoriaId);
 
 //console.log(db);
 
   useEffect (()=> {
 
     const productListCollection = collection(db,"productCollection");
-    getDocs(productListCollection)
 
-    .then (res => {console.log(res.docs, "<- log res.doc", res, "<-log res",) 
+    const consulta = categoriaId?
+     query(productListCollection, where("categoria","==", categoriaId))
+     :
+     productListCollection 
+
+
+    getDocs(consulta)
+
+    .then (res => {
+      
+      const lista = res.docs.map(docData => {
+
+        return {
+          id: docData.id,
+          ...docData.data()
+        }
+      })
+      setProductList(lista);
+      console.log(lista);
+      setMostrar(false);   
 
     })
-
-    // getData(categoriaId)
-    // .then((res)=> setProductList(res))
-    // .catch((error)=> console.log(error))
-    // .finally(()=>setMostrar(false))
+   
     
   },[categoriaId])
+
+  // .finally (
+  //   setMostrar(false)
+  // )
  
 
   return (

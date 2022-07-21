@@ -10,6 +10,8 @@ const ItemDetail = ({itemDetail}) => {
 
 const {img,name,id,detail,precio,stock} = itemDetail
 
+console.log (itemDetail, "detalle item")
+
 const [finalizar, setFinalizar] = useState(false) ;
 
 const {addItem} = useContext(contextoCarrito);

@@ -19,7 +19,7 @@ export const ItemCount = ({inicial, stock, onAdd}) => {
       }
   }
   const HandlerAdd = () => {
-    if( contador < stock)  {
+    if( contador < stock )  {
       setContador( contador + 1)
       
       } 
