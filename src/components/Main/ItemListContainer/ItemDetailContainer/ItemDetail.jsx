@@ -36,7 +36,10 @@ const onAdd = (cantidad) => {
         <p>{detail}</p>
         <p>${precio}</p>
 
-        {finalizar ? <Link to="/cart"> <button>Finalizar compra</button> </Link> : <ItemCount stock={stock} inicial={1} onAdd={onAdd}/> }
+        {finalizar ? 
+        <> <Link to="/cart"> <button>Ir al carrito!</button> </Link> <Link to="/"> <button>Seguir comprando!</button> </Link> </>
+        : 
+        <ItemCount stock={stock} inicial={1} onAdd={onAdd}/> }
         
 
         </div>

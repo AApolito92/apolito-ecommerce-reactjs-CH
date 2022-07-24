@@ -12,7 +12,7 @@ export const ItemListContainer = ({greeting}) => {
   const [mostrar, setMostrar] = useState(true)  ;
   const {categoriaId} = useParams();
 
-  console.log (categoriaId);
+ // console.log (categoriaId);
 
 //console.log(db);
 
@@ -24,8 +24,6 @@ export const ItemListContainer = ({greeting}) => {
      query(productListCollection, where("categoria","==", categoriaId))
      :
      productListCollection 
-
-
     getDocs(consulta)
 
     .then (res => {
@@ -38,7 +36,7 @@ export const ItemListContainer = ({greeting}) => {
         }
       })
       setProductList(lista);
-      console.log(lista);
+      //console.log(lista);
       setMostrar(false);   
 
     })

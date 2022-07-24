@@ -2,7 +2,7 @@ import React ,{useContext} from 'react'
 
 function itemCart({producto, deleteItem }) {
 
-    console.log(producto,"item cart");
+    //console.log(producto,"item cart");
 
     const {name,qty,precio,id} = producto ;
 

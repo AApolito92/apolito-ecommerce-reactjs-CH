@@ -57,7 +57,7 @@ const CustomProvider = ({children}) => {
  
 
   return (
-    <Provider value={{cartProductList,addItem,deleteItem,getQtyProd,cleanCart,totalPrice,qtyProduct}}>
+    <Provider value={{cartProductList,setProductList,addItem,deleteItem,getQtyProd,cleanCart,totalPrice,qtyProduct}}>
     {children}
     </Provider>
   )
