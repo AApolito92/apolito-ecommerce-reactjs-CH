@@ -29,7 +29,6 @@ export const ItemListContainer = ({greeting}) => {
     .then (res => {
       
       const lista = res.docs.map(docData => {
-
         return {
           id: docData.id,
           ...docData.data()
