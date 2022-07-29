@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom';
 import { db } from '../../../firebase/firebase';
 import {getDocs, collection, query,where} from "firebase/firestore"
 
+
 export const ItemListContainer = ({greeting}) => {
 
   const [productList, setProductList] = useState ([]);
@@ -24,6 +25,7 @@ export const ItemListContainer = ({greeting}) => {
      query(productListCollection, where("categoria","==", categoriaId))
      :
      productListCollection 
+     
     getDocs(consulta)
 
     .then (res => {

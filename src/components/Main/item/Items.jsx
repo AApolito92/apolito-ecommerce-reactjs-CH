@@ -10,6 +10,8 @@ const Items = ({product}) => {
 //console.log(product,"producto")
 
 
+
+
   const {img,name,id} = product
 
   return (
