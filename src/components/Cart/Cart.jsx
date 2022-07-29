@@ -12,6 +12,7 @@ function Cart() {
   const {cartProductList, totalPrice,deleteItem,setProductList} = useContext(contextoCarrito);
   //console.log (cartProductList, "consola cart");
   //console.log(totalPrice,"precio total");
+  //pasar initial al contexto ? 
 
   const initialUser = {
     name: "",

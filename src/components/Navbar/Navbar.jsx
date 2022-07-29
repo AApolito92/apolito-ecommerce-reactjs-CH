@@ -26,7 +26,6 @@ export const Navbar = () => {
             ...docData.data()          
         }        
       })
-      console.log(listProd,"logras");
       //const unique = [...new Set(listProd.map(item => item.categoria))];
       setNavList(listProd);     
     })    
