@@ -5,6 +5,10 @@ import React,{createContext, useState,useEffect} from 'react'
 export const contextoCarrito = createContext([]);
 const {Provider} = contextoCarrito;
 
+
+
+
+
 const CustomProvider = ({children}) => {
 
     const [cartProductList, setProductList] = useState([]);
@@ -14,8 +18,9 @@ const CustomProvider = ({children}) => {
 
     useEffect(() => {
         getQtyProd();    
-        console.log(totalPrice)
-    }, [cartProductList])
+        console.log("render")
+        //eslint-disable-next-line react-hooks/exhaustive-deps
+    },[cartProductList])
 
     const addItem = (item,qty) => {
         if (isInCart(item.id)){
@@ -23,18 +28,15 @@ const CustomProvider = ({children}) => {
             const index = cartProductList.indexOf(found);
             const aux = [...cartProductList];
             aux[index].qty += qty;
-            setProductList(aux);
-            console.log(cartProductList,"producto duplicado")
+            setProductList(aux);           
         }else {
-            setProductList([...cartProductList, item])
-            console.log(cartProductList,"producto agregado")
+            setProductList([...cartProductList, item])            
         }
     }
     const deleteItem = (id) => {
-
-        //agregar logica similar a add item para poder eliminar unidades de items y no item completo 
-
+       
         setProductList(cartProductList.filter(product => product.id !== id));        
+        
     }
     const isInCart = (id) => {
         const found = cartProductList.find(product => product.id === id) ;

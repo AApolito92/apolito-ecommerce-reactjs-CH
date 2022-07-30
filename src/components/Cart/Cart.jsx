@@ -37,8 +37,7 @@ function Cart() {
     const base = getFirestore();
     const orderColl = collection(base,"buyerOrders");
     addDoc(orderColl,user)
-    .then(({id})=> console.log(id,"id compra"));
-   
+    .then(({id})=> console.log(id,"id compra"));   
 
     setProductList([]);
     setUser(initialUser);
@@ -54,7 +53,7 @@ function Cart() {
     <>
      {cartProductList.map((product) => <ItemCart key={product.id} producto={product} deleteItem={deleteItem}/>)}
      
-     <p>Total compra:{totalPrice} </p>
+     <p>{`Total compra: $${totalPrice}`} </p>
 
       <div>
         <form onSubmit={saveData}>

@@ -1,8 +1,8 @@
-import React ,{useContext} from 'react'
+import React from 'react'
 
 function itemCart({producto, deleteItem }) {
 
-    //console.log(producto,"item cart");
+    console.log(producto,"item cart");
 
     const {name,qty,precio,id} = producto ;
 
@@ -15,7 +15,7 @@ function itemCart({producto, deleteItem }) {
   return (
     <div>
         <p>{name} x {qty}</p>
-        <p>total: {(qty*precio)}</p>
+        <p>total: ${(qty*precio)}</p>
         <button onClick={HandlerDelete}>Eliminar item</button>        
     </div>
   )

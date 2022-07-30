@@ -45,9 +45,7 @@ export const ItemListContainer = ({greeting}) => {
     
   },[categoriaId])
 
-  // .finally (
-  //   setMostrar(false)
-  // )
+
  
 
   return (

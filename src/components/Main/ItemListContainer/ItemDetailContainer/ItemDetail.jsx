@@ -10,7 +10,7 @@ const ItemDetail = ({itemDetail}) => {
 
 const {img,name,id,detail,precio,stock} = itemDetail
 
-console.log (itemDetail, "detalle item")
+//console.log (itemDetail, "detalle item")
 
 const [finalizar, setFinalizar] = useState(false) ;
 
@@ -18,8 +18,8 @@ const {addItem} = useContext(contextoCarrito);
 
 
 const onAdd = (cantidad) => {  
-  console.log(cantidad ,"cantidad tipo waat")
-  console.log(`Compraste ${cantidad} unidades`);
+  //console.log(cantidad ,"cantidad tipo waat")
+  //console.log(`Compraste ${cantidad} unidades`);
   setFinalizar(true);
   const newItem = {...itemDetail, qty: cantidad }
   addItem(newItem,cantidad)

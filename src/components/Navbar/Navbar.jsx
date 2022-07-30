@@ -26,7 +26,7 @@ export const Navbar = () => {
             ...docData.data()          
         }        
       })
-      //const unique = [...new Set(listProd.map(item => item.categoria))];
+      
       setNavList(listProd);     
     })    
   },[])
