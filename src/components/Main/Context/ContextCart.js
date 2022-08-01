@@ -33,7 +33,20 @@ const CustomProvider = ({children}) => {
             setProductList([...cartProductList, item])            
         }
     }
+
+
+    const subtractItem = (item,qty) => {
+      
+            const found = cartProductList.find(el => el.id === item.id);
+            const index = cartProductList.indexOf(found);
+            const aux = [...cartProductList];
+            aux[index].qty -= qty;
+            setProductList(aux);           
+       
+    }
+
     const deleteItem = (id) => {
+        
        
         setProductList(cartProductList.filter(product => product.id !== id));        
         
@@ -59,7 +72,7 @@ const CustomProvider = ({children}) => {
  
 
   return (
-    <Provider value={{cartProductList,setProductList,addItem,deleteItem,getQtyProd,cleanCart,totalPrice,qtyProduct}}>
+    <Provider value={{cartProductList,setProductList,addItem,deleteItem,getQtyProd,cleanCart,totalPrice,subtractItem,qtyProduct}}>
     {children}
     </Provider>
   )

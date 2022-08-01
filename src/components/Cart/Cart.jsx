@@ -9,7 +9,7 @@ import { addDoc, collection, getFirestore, serverTimestamp } from 'firebase/fire
 function Cart() {
 
   
-  const {cartProductList, totalPrice,deleteItem,setProductList} = useContext(contextoCarrito);
+  const {cartProductList, totalPrice,deleteItem,setProductList,addItem,subtractItem} = useContext(contextoCarrito);
   //console.log (cartProductList, "consola cart");
   //console.log(totalPrice,"precio total");
   //pasar initial al contexto ? 
@@ -51,7 +51,7 @@ function Cart() {
     <p>No hay productos en el carrito pasa por <Link to="/"> ACA </Link></p>
     :
     <>
-     {cartProductList.map((product) => <ItemCart key={product.id} producto={product} deleteItem={deleteItem}/>)}
+     {cartProductList.map((product) => <ItemCart key={product.id} producto={product} deleteItem={deleteItem} addItem={addItem} subtractItem={subtractItem}  />)}
      
      <p>{`Total compra: $${totalPrice}`} </p>
 
