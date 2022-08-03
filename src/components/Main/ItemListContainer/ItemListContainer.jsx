@@ -49,16 +49,16 @@ export const ItemListContainer = ({greeting}) => {
  
 
   return (
-    <div>
+    <div id= "mainBody">
+        
+        <>
         <h2>Bienvenidos a {greeting}</h2>
         <h3>Productos</h3>
-        <div className='productContainer'>
-
        { mostrar ? <p>Loading...</p> : <ItemList productList={productList}/>}   
 
          
           
-        </div>
+        </>
     </div>
   )
 }

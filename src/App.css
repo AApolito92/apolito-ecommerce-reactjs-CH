@@ -1,15 +1,19 @@
-.app {
-  margin: 0;
-  padding: 0;
- 
-}
 
-main {
-  width: 90%;
+
+#mainBody {
+  width: 100%;
   margin: auto;
-  background-color: #F9FAFC;
+  border: 1px solid transparent;   
+  text-align: center;
+  padding-top: 2%;
+ 
+  
 }
 
-h2 {
-  text-align: center;
+html {
+  background-color: red;
+}
+
+#root {
+  background-image: url(../public/concrete_wall.webp);
 }

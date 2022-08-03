@@ -3,6 +3,7 @@ import { ItemListContainer } from './components/Main/ItemListContainer/ItemListC
 import { Navbar } from './components/Navbar/Navbar';
 import Itemdetailcontainer from './components/Main/ItemListContainer/ItemDetailContainer/ItemDetailContainer';
 import Cart from './components/Cart/Cart';
+import { Footer } from './components/Footer/Footer';
 import {
   BrowserRouter,
   Routes,
@@ -25,6 +26,7 @@ function App() {
             <Route path='/detail/:id' element = {<Itemdetailcontainer/>}/>
             <Route path='/cart' element = {<Cart/>}/>            
           </Routes> 
+          <Footer/>
        </CustomProvider>         
       </BrowserRouter>  
               

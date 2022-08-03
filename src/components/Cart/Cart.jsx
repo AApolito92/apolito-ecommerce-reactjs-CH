@@ -37,7 +37,9 @@ function Cart() {
     const base = getFirestore();
     const orderColl = collection(base,"buyerOrders");
     addDoc(orderColl,user)
-    .then(({id})=> console.log(id,"id compra"));   
+    .then(({id})=> 
+    
+    console.log(id,"id compra"));   
 
     setProductList([]);
     setUser(initialUser);
