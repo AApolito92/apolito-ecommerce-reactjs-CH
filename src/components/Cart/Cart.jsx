@@ -50,7 +50,10 @@ function Cart() {
     
     <>
     {cartProductList.length === 0? 
+
+    <div className='mainBody'>
     <p>No hay productos en el carrito pasa por <Link to="/"> ACA </Link></p>
+    </div>
     :
     <>
      {cartProductList.map((product) => <ItemCart key={product.id} producto={product} deleteItem={deleteItem} addItem={addItem} subtractItem={subtractItem}  />)}

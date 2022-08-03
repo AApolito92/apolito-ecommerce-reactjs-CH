@@ -40,7 +40,7 @@ export const ItemCount = ({inicial, stock, onAdd}) => {
             <div>
             <button onClick={HandlerMinus}>-</button><span>{contador}</span><button onClick={HandlerAdd}>+</button>
             </div>
-            <button disabled= {stock <= 0} onClick={agregarCantidad}>Agregar</button>            
+            <button id='addButton' disabled= {stock <= 0} onClick={agregarCantidad}>Agregar</button>            
         </div>
     </div>
   )

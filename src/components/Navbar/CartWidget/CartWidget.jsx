@@ -1,8 +1,6 @@
 import React, {useContext} from 'react'
 import { contextoCarrito } from '../../Main/Context/ContextCart';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-
-
 import Badge from '@mui/material/Badge';
 import { styled } from '@mui/material/styles';
 import IconButton from '@mui/material/IconButton';

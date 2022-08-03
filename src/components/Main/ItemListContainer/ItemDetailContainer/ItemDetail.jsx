@@ -29,8 +29,8 @@ const onAdd = (cantidad) => {
 
   return (
     <div className='detailContainer' >
-        <div className='detailCard'>
         <img src={img} alt={name} />
+        <div className='detailCard'>        
         <div id={id}>
         <p>{name}</p>
         <p>{detail}</p>

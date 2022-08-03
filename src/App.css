@@ -1,17 +1,17 @@
 
 
-#mainBody {
+.mainBody {
   width: 100%;
   margin: auto;
   border: 1px solid transparent;   
   text-align: center;
   padding-top: 2%;
- 
+  min-height: 90vh;
   
 }
 
 html {
-  background-color: red;
+  background-color: black;
 }
 
 #root {

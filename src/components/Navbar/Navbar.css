@@ -7,10 +7,11 @@
     flex-wrap: wrap;
     align-items: center;  
     justify-content:space-between ;
-    background-color: #42c3a7;
+    background-color: #614419;    
     margin: auto;
     padding: 0 1% 0 1%;    
 }
+
 h1 {
     font-size: 1em;
 }
@@ -21,10 +22,13 @@ h1 {
 }
 
 ul {
-    width: 50%;
+    width: 85%;
     padding: 0;
-    margin-left: auto;
-    text-align: right;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
 }
 
 ul a {

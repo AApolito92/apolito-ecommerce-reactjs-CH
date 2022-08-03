@@ -33,7 +33,7 @@ function Itemdetailcontainer() {
   return (
 
 
-    <div>
+    <div className='mainBody'>
     
 
        { mostrar ? <p>Loading detalle...</p> : <ItemDetail itemDetail= {itemDetail}/> }   

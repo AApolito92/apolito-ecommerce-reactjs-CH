@@ -49,7 +49,7 @@ export const ItemListContainer = ({greeting}) => {
  
 
   return (
-    <div id= "mainBody">
+    <div className="mainBody">
         
         <>
         <h2>Bienvenidos a {greeting}</h2>
