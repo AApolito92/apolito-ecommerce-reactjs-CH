@@ -1,7 +1,13 @@
 footer{
-    border: 1px solid transparent;
+    
     background-color: black;
     width: 100%;
+    margin: auto;
     
     
+}
+
+footer h2 {
+    color: white;
+    text-align: center;
 }

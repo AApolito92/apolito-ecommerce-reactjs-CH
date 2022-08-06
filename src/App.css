@@ -1,19 +1,20 @@
 
-
-.mainBody {
-  width: 100%;
-  margin: auto;
+.mainBody { 
+  margin: 0;
   border: 1px solid transparent;   
   text-align: center;
   padding-top: 2%;
-  min-height: 90vh;
+  min-height: 100vh;
   
 }
 
 html {
-  background-color: black;
+  background-color: red;
 }
+
+
 
 #root {
   background-image: url(../public/concrete_wall.webp);
+
 }

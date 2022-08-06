@@ -18,7 +18,7 @@ function Cart() {
     name: "",
     mail: "",
     address:"",
-    items: cartProductList.map(product=> ({id:product.id, name: product.name, precio: product.precio, cantidad:product.qty})),
+    items: cartProductList.map(product=> ({id:product.id, name: product.name, precio: product.precio, cantidad:product.qty, state:"generado"})),
     date:serverTimestamp(),
     total: totalPrice
   }
