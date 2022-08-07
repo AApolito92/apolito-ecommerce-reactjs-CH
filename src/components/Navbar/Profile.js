@@ -34,17 +34,17 @@ const loggedUser = auth.currentUser;
             console.log("error");
         }
     }
-    getLista();     
-},[])
+    //getLista();     
+},[userLogeado])
 
 setLogUser(userLogeado);
 console.log(userLogeado,"userLogeadito");
 
 
 const initialUser = {
-    name:  "",
+    
     mail: loggedUser.email,
-    address:"",       
+           
     uid:loggedUser.uid
     }
 
@@ -82,12 +82,13 @@ const initialUser = {
           <button type='submit'> Guardar datos</button>
         </form>
         <div>
+
         {userLogeado.map((items) => 
-        <>
+        <div key={items.id}>
         <p>{items.name} </p>
         <p>{items.mail} </p>
         <p>{items.address} </p>
-        </>
+        </div>
         )}
         </div>
         
