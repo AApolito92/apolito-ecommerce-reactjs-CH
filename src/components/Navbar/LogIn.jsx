@@ -1,13 +1,11 @@
 import React,{useState} from 'react'
 import { app } from '../../firebase/firebase';
-import {getAuth,
-        createUserWithEmailAndPassword,
-        signInWithEmailAndPassword,
+import {getAuth,        
         signInWithRedirect,
         GoogleAuthProvider
         } from "firebase/auth"
-
-
+import { logOrCreate } from '../../Hooks/hooks';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -16,24 +14,21 @@ const googleProvider = new GoogleAuthProvider();
 
 export const LogIn = () => {
 
+    
+    const navigate =useNavigate();
     const [register,SetRegister] = useState(false);
+    
+    async function submitHandler(e){      
+    await  logOrCreate(e,register)
+    .then (res => navigate(res,{replace:true}))
+     
+      }
 
-    async function submitHandler(e){
-        e.preventDefault();
-        const email = e.target.correo.value;
-        const password = e.target.password.value;
-        if(register){
-            const usuario = await createUserWithEmailAndPassword(auth,email,password);
-           
-            console.log(usuario,"registrado")
-        }else {
-            signInWithEmailAndPassword(auth,email,password);
-            console.log(auth,"usuario logeado?");
-        }
-       
-        
-    }
 
+      function submitGoogle (){
+      signInWithRedirect(auth,googleProvider)
+        navigate("/",{replace:true})
+      }
 
   return (
     <div>
@@ -51,7 +46,7 @@ export const LogIn = () => {
         </form>
 
 
-        <button type='submit' onClick={()=> signInWithRedirect(auth,googleProvider) }> Ingresar con google</button>
+        <button type='submit' onClick={submitGoogle }> Ingresar con google</button>
 
         <button type='submit' onClick={()=> SetRegister(!register)}> 
         { register? "Ya tenes cuenta? Inicia sesion" : "No tenes cuenta ? Registrate ahora"}

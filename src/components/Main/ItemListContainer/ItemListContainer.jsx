@@ -37,7 +37,7 @@ export const ItemListContainer = ({greeting}) => {
         }
       })
       setProductList(lista);
-      //console.log(lista);
+      console.log(lista,"lista item list");
       setMostrar(false);   
 
     })

@@ -1,6 +1,6 @@
 import React,{createContext, useState,useEffect} from 'react'
 
-
+//buscar en firestore con onauthchange
 
 export const contextoCarrito = createContext([]);
 const {Provider} = contextoCarrito;
@@ -11,14 +11,19 @@ const {Provider} = contextoCarrito;
 
 const CustomProvider = ({children}) => {
 
+   // console.log(auth.currentUser,"log user auth context")
+
     const [cartProductList, setProductList] = useState([]);
     const [qtyProduct, setQtyProducts] = useState(0);
     const [totalPrice, setTotalPrice] = useState(0);
+    const [userLog,setLogUser]= useState([]);
+    console.log(userLog,"loguser contexto") 
+
 
 
     useEffect(() => {
         getQtyProd();    
-        console.log("render")
+        //console.log("render")
         //eslint-disable-next-line react-hooks/exhaustive-deps
     },[cartProductList])
 
@@ -72,7 +77,7 @@ const CustomProvider = ({children}) => {
  
 
   return (
-    <Provider value={{cartProductList,setProductList,addItem,deleteItem,getQtyProd,cleanCart,totalPrice,subtractItem,qtyProduct}}>
+    <Provider value={{cartProductList,setProductList,addItem,deleteItem,getQtyProd,cleanCart,totalPrice,subtractItem,qtyProduct,setLogUser,userLog}}>
     {children}
     </Provider>
   )

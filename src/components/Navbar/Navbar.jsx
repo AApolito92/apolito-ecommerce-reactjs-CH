@@ -11,15 +11,17 @@ const auth = getAuth(app);
 
 export const Navbar = () => {
 
-  const [logUser,setLogUser]= useState(null)
-  console.log(logUser)
+  const [logInUser,setlogInUser]= useState(null)
+ 
   onAuthStateChanged(auth,(userFirebase)=> {
     if(userFirebase){
-      setLogUser(userFirebase);
-      console.log(userFirebase,"log user");
-      console.log(auth,"log auth solo");
+      //console.log(userFirebase,"log user");
+      setlogInUser(userFirebase);
+     
+      //console.log(auth,"log auth solo");
+      //console.log(auth.currentUser,auth.currentUser.email)
     }else {
-      setLogUser(null);
+      setlogInUser(null);
     }
   })
 
@@ -53,7 +55,16 @@ export const Navbar = () => {
                 </ul>
                </li>
 
-               {logUser? <li>Bienvenido usuario <button onClick={()=> signOut(auth)} > deslogear </button></li>: <li><Link to="/login">Log In</Link></li> }
+               {logInUser?
+               <li> <p>{auth.currentUser.email} </p>
+                <ul>
+                  <li><Link to="/Profile">Perfil</Link></li>
+                  <li><button onClick={()=> signOut(auth)} > deslogear </button></li>
+                </ul>
+               </li>
+               : 
+               <li><Link to="/login">Log In</Link></li> }
+
                 <li><Link to="/cart"><CartWidget/></Link></li>            
                       
             </ul>
