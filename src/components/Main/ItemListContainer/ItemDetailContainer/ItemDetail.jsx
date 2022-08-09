@@ -32,7 +32,7 @@ const onAdd = (cantidad) => {
         <img src={img} alt={name} />
         <div className='detailCard'>        
         <div id={id}>
-        <p>{name}</p>
+        <h5>{name}</h5>
         <p>{detail}</p>
         <p>${precio}</p>
 

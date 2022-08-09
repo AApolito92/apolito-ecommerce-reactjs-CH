@@ -10,9 +10,11 @@ import { app } from '../../firebase/firebase';
 
 
 const auth = getAuth(app);
+
 function Cart() {
 
-  
+
+
   const {cartProductList, totalPrice,deleteItem,setProductList,addItem,subtractItem,userLog} = useContext(contextoCarrito);
   console.log(auth.currentUser,"usuario logeadito en cart")
   console.log(userLog,"usuario logeadito context")
@@ -26,6 +28,8 @@ function Cart() {
 
 
   const finalizarCompra = async(e) => {
+
+
     e.preventDefault();    
     const base = getFirestore();
     const orderColl = collection(base,"buyerOrders");
@@ -56,8 +60,12 @@ console.log(idCompra,"wot");
      <p>{`Total compra: $${totalPrice}`} </p>
 
       <div>
-        
-          <button onClick={finalizarCompra}> {`Finalizar compra como ${newUser.email}`}</button>
+
+        { auth.currentUser?
+         <button onClick={finalizarCompra}> {`Finalizar compra como ${auth.currentUser.email}`}</button>
+         :
+         <Link to="/login"> <button>Ingresar con tu usuario para finalizar la compra</button>  </Link>
+         }
 
             
 

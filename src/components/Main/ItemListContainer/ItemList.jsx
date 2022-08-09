@@ -10,7 +10,7 @@ const ItemList = ({productList}) => {
     <>      
       <div className='itemsHolder'>
 
-          {productList.map((product)=> <Items key={product.id} product={product}/>)}
+          {productList.slice(0,6).map((product)=> <Items key={product.id} product={product}/>)}
           
       </div>
     </>

@@ -45,11 +45,13 @@ ul {
 
 ul li {
     position: relative;
-    width: 12%;
+    width: 14%;
     text-align: center;
     color: white;
     
 }
+
+
 
 ul ul {
     position: absolute;    
@@ -59,6 +61,8 @@ ul ul {
     border-radius: 5%; 
     padding-bottom: 2%;
     z-index: 1;
+    border: 1px solid white;
+    border-top: 0;
        
 }
 

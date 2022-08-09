@@ -1,12 +1,4 @@
 
-.mainBody { 
-  margin: 0;
-  border: 1px solid transparent;   
-  text-align: center;
-  padding-top: 2%;
-  min-height: 100vh;
-  
-}
 
 html {
   background-color: red;

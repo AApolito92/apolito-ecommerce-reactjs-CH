@@ -58,7 +58,7 @@ console.log(buys,"log items arrays");
         {buys.map(product => 
             <>      
           <h4 key={product.id}> {`Id de compra: ${product.id} `}</h4>          
-          <ul> {product.items.map(tst => <li>   {`${tst.name} x ${tst.cantidad}`} </li> )}</ul>
+          <ul> {product.items.map(tst => <li key={tst.id}>   {`${tst.name} x ${tst.cantidad}`} </li> )}</ul>
           <p>{`total de la compra: $${product.total}`} </p>
           
           </>
@@ -68,7 +68,8 @@ console.log(buys,"log items arrays");
         </>
         :
         <>      
-        <p>Relogear para cargar los datos</p>
+        <p>Relogear para cargar los datos por favor</p>
+        
         </>
         }
         
