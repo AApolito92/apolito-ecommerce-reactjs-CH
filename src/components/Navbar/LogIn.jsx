@@ -1,42 +1,49 @@
-import React,{useState} from 'react'
-import { app } from '../../firebase/firebase';
-import {getAuth,        
-        signInWithRedirect,
-        GoogleAuthProvider
-        } from "firebase/auth"
-import { logOrCreate } from '../../Hooks/hooks';
+import React,{useState,useContext} from 'react'
 import { useNavigate } from 'react-router-dom';
+import { createOrLog } from '../../Hooks/createOrLog';
+import { contextoCarrito } from '../Main/Context/ContextCart'
 
 
 
-const auth = getAuth(app);
-const googleProvider = new GoogleAuthProvider();
 
 export const LogIn = () => {
+  const {setLogUser,userLog} = useContext(contextoCarrito)  
+  const navigate =useNavigate();
+  const [register,SetRegister] = useState(false);
+    
+  async function submitHandler(e){      
+    await  createOrLog(e,register)
+      .then (res => setLogUser(res)
+            )
 
-    
-    const navigate =useNavigate();
-    const [register,SetRegister] = useState(false);
-    
-    async function submitHandler(e){      
-    await  logOrCreate(e,register)
-    .then (res => navigate(res,{replace:true}))
+        .finally (
+          navigate("/",{replace:true})
+                  )    
+    }
+
+
      
-      }
 
-
-      function submitGoogle (){
-      signInWithRedirect(auth,googleProvider)
-        navigate("/",{replace:true})
-      }
+      console.log(userLog,"usuario en context");
 
   return (
     <div>
         <h1>{register? "Regístrate" : "Inicia sesión"}</h1>
 
         <form onSubmit={submitHandler}>
-          <input type="email"  id='correo' name ="email" placeholder='Correo electronico'  required />
-          <input type="password" id='password' name= "pw" placeholder='Contraseña'  required/>
+         {register?
+         <>
+        <input type="text"  id='nombre' name ="nombre" placeholder='nombre'  required />
+        <input type="text"  id='direccion' name ="direccion" placeholder='Dirección'  required />
+        <input type="email"  id='correo' name ="email" placeholder='Correo electronico'  required />
+        <input type="password" id='password' name= "pw" placeholder='Contraseña'  required/>
+        </>
+        :
+        <>
+        <input type="email"  id='correo' name ="email" placeholder='Correo electronico'  required />
+        <input type="password" id='password' name= "pw" placeholder='Contraseña'  required/>
+        </>
+        } 
          
           
             <button type='submit'> 
@@ -46,7 +53,6 @@ export const LogIn = () => {
         </form>
 
 
-        <button type='submit' onClick={submitGoogle }> Ingresar con google</button>
 
         <button type='submit' onClick={()=> SetRegister(!register)}> 
         { register? "Ya tenes cuenta? Inicia sesion" : "No tenes cuenta ? Registrate ahora"}

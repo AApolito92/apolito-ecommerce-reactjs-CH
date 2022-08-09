@@ -1,96 +1,76 @@
 import React,{ useContext,useState,useEffect } from 'react'
 import { contextoCarrito } from '../Main/Context/ContextCart'
-import { collection,addDoc,getDocs} from 'firebase/firestore';
-import { getAuth } from 'firebase/auth';
-import { app,db } from '../../firebase/firebase';
+import { db,app } from '../../firebase/firebase'
+import { collection,getDocs } from 'firebase/firestore'
+import { getAuth } from 'firebase/auth'
 
 
+const auth = getAuth(app);
 
-
-const auth  = getAuth(app);
 
 export const Profile = () => {
 
-const {setLogUser} = useContext(contextoCarrito)
 
-//console.log(auth,"log auth profile")
-const loggedUser = auth.currentUser;
-
- //encontrar datos
- const [userLogeado,setUserLogeado] = useState([]);
- useEffect(()=>{
-    const getLista= async ()=>{
-        try {
-            const querySnapshot = await getDocs(collection(db,'usuarios'))
-            const docs = []
-            querySnapshot.forEach((doc)=>{
-                docs.push({...doc.data(),id:doc.id})
-            })
-            const filtrado = docs.filter(el => el.mail === auth.currentUser.email)
-            setUserLogeado(filtrado)         
-            
-            console.log(filtrado,"array filtrado")
-        } catch (error) {
-            console.log("error");
-        }
-    }
-    //getLista();     
-},[userLogeado])
-
-setLogUser(userLogeado);
-console.log(userLogeado,"userLogeadito");
+ 
+const {userLog} = useContext(contextoCarrito)
+console.log(userLog,"log profile")
+const usuarioBO = userLog[0];
+const [buys,setBuys] = useState([])
 
 
-const initialUser = {
-    
-    mail: loggedUser.email,
-           
-    uid:loggedUser.uid
-    }
-
-    console.log(initialUser,"user inicial");
-
-    const [user, setUser] = useState(initialUser);
-
-    const captureData = (e) => {
-        e.preventDefault();
-        const {name , value} = e.target ;
-        setUser({...user,[name]:value})
-        //console.log(user,"user profile");
-      }
-
-      const saveDataProfile = async(e) => {
-        e.preventDefault();        
-        const orderColl = collection(db,"usuarios");
-        addDoc(orderColl,user)       
-        console.log(user,"user despues de save")
-           
-      }
-
-     
+useEffect (()=> {
+  const  getBuys = async ()=>{
+    let filtrado =[];    
+    const querySnapshot =await getDocs(collection(db,'buyerOrders'))
+    const docs = []
+        querySnapshot.forEach((doc)=>{
+            docs.push({...doc.data(),id:doc.id})
+        })
+        filtrado = docs.filter(el => el.email === auth.currentUser.email)               
+        
+        console.log(filtrado,"array filtrado compras")
+  
+        setBuys(filtrado);
+  }
+ 
+  getBuys();
+},[])
 
 
+console.log(buys,"log items arrays");
 
   return (
     <div>
-        <h3>Datos personales</h3>
 
-        <form onSubmit={saveDataProfile} >
-          <input type="text" name ="name" placeholder='Nombre Completo' onChange={captureData} value={user.name}  required />
-          <input type="email" name= "mail" placeholder='Correo electronico' onChange={captureData} value={user.mail} required/>
-          <input type="text" name='address' placeholder='Dirección'  onChange={captureData} value={user.address} required/>
-          <button type='submit'> Guardar datos</button>
-        </form>
+      <h3>Datos personales</h3>
+      {usuarioBO !== undefined?
+        <>                
         <div>
-
-        {userLogeado.map((items) => 
-        <div key={items.id}>
-        <p>{items.name} </p>
-        <p>{items.mail} </p>
-        <p>{items.address} </p>
+        <p>{usuarioBO.nombre} </p>
+        <p>{usuarioBO.email} </p>
+        <p>{usuarioBO.direccion} </p>
+        <p>{`fecha de registro: ${usuarioBO.registro}`}</p>
         </div>
-        )}
+        
+        <div>
+          <h3>Compras</h3>
+            
+        {buys.map(product => 
+            <>      
+          <h4 key={product.id}> {`Id de compra: ${product.id} `}</h4>          
+          <ul> {product.items.map(tst => <li>   {`${tst.name} x ${tst.cantidad}`} </li> )}</ul>
+          <p>{`total de la compra: $${product.total}`} </p>
+          
+          </>
+          )}
+          
         </div>
+        </>
+        :
+        <>      
+        <p>Relogear para cargar los datos</p>
+        </>
+        }
         
     </div>
   )

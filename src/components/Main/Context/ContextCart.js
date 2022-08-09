@@ -1,5 +1,6 @@
 import React,{createContext, useState,useEffect} from 'react'
 
+
 //buscar en firestore con onauthchange
 
 export const contextoCarrito = createContext([]);
@@ -17,8 +18,9 @@ const CustomProvider = ({children}) => {
     const [qtyProduct, setQtyProducts] = useState(0);
     const [totalPrice, setTotalPrice] = useState(0);
     const [userLog,setLogUser]= useState([]);
-    console.log(userLog,"loguser contexto") 
 
+    
+console.log(userLog,"log user context");
 
 
     useEffect(() => {
@@ -39,27 +41,20 @@ const CustomProvider = ({children}) => {
         }
     }
 
-
-    const subtractItem = (item,qty) => {
-      
-            const found = cartProductList.find(el => el.id === item.id);
-            const index = cartProductList.indexOf(found);
-            const aux = [...cartProductList];
-            aux[index].qty -= qty;
-            setProductList(aux);           
-       
+    const subtractItem = (item,qty) => {      
+        const found = cartProductList.find(el => el.id === item.id);
+        const index = cartProductList.indexOf(found);
+        const aux = [...cartProductList];
+        aux[index].qty -= qty;
+        setProductList(aux);         
     }
 
-    const deleteItem = (id) => {
-        
-       
+    const deleteItem = (id) => {       
         setProductList(cartProductList.filter(product => product.id !== id));        
-        
     }
     const isInCart = (id) => {
         const found = cartProductList.find(product => product.id === id) ;
-        return found ? true : false ; 
-        //return products.some(products => products.id === id);
+        return found ? true : false ;        
     }
     const getQtyProd = () => {
         let qty = 0 ;
@@ -73,6 +68,13 @@ const CustomProvider = ({children}) => {
         setProductList([]);
         setQtyProducts(0) 
     }
+
+
+
+
+
+
+
   
  
 
