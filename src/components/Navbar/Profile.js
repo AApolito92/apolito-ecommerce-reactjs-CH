@@ -3,7 +3,7 @@ import { contextoCarrito } from '../Main/Context/ContextCart'
 import { db,app } from '../../firebase/firebase'
 import { collection,getDocs } from 'firebase/firestore'
 import { getAuth } from 'firebase/auth'
-
+import "./profile.css"
 
 
 const auth = getAuth(app);
@@ -44,28 +44,29 @@ useEffect (()=> {
 console.log(buys,"log items arrays");
 
   return (
-    <div>
+    <div className='profileHolder'>
 
-      <h3>Datos personales</h3>
+      
       {usuarioBO !== undefined?
         <>                
-        <div>
-        <p>{usuarioBO.nombre} </p>
-        <p>{usuarioBO.email} </p>
-        <p>{usuarioBO.direccion} </p>
-        <p>{`fecha de registro: ${usuarioBO.registro}`}</p>
+        <div className='personalData'>
+          <h3>Datos personales</h3>
+          <p>{usuarioBO.nombre} </p>
+          <p>{usuarioBO.email} </p>
+          <p>{usuarioBO.direccion} </p>
+          <p>{`fecha de registro: ${usuarioBO.registro}`}</p>
         </div>
         
-        <div>
+        <div className='buyData'>
           <h3>Compras</h3>
             
         {buys.map(product => 
-            <>      
+          <div>      
           <h4 key={product.id}> {`Id de compra: ${product.id} `}</h4>          
           <ul> {product.items.map(tst => <li key={tst.id}>   { `${tst.name} x ${tst.cantidad}`} </li> )}</ul>
           <p>{`total de la compra: $${product.total}`} </p>
           
-          </>
+          </div>
           )}
           
         </div>

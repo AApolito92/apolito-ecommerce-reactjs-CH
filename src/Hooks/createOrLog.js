@@ -1,4 +1,4 @@
-import { getAuth,createUserWithEmailAndPassword,signInWithEmailAndPassword } from "firebase/auth"
+import { getAuth,createUserWithEmailAndPassword,signInWithEmailAndPassword} from "firebase/auth"
 import { app,db } from '../firebase/firebase';
 import { collection,addDoc,getDocs} from "firebase/firestore";
 
@@ -29,32 +29,6 @@ export const  getUser = async ()=>{
 }
 
 
-export const  getBuys = async ()=>{
-
-  let filtrado =[];
-  try {
-      const querySnapshot =await getDocs(collection(db,'buyerOrders'))
-      const docs = []
-      querySnapshot.forEach((doc)=>{
-          docs.push({...doc.data(),id:doc.id})
-      })
-      filtrado = docs.filter(el => el.email === auth.currentUser.email)
-             
-      
-      console.log(filtrado,"array filtrado compras")
-
-     } catch (error) {
-      console.error("error");
-     }
-
-  return filtrado ;
-
-}
-
-
-
-
-
 
 export async function createOrLog(e,valorRegister){
   
@@ -77,7 +51,7 @@ export async function createOrLog(e,valorRegister){
       
       const orderColl = collection(db,"usuarios");
       addDoc(orderColl,user) 
-
+      
 
       return  user;    
      

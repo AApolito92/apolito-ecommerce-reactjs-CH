@@ -4,8 +4,6 @@ import { createOrLog } from '../../Hooks/createOrLog';
 import { contextoCarrito } from '../Main/Context/ContextCart'
 
 
-
-
 export const LogIn = () => {
   const {setLogUser,userLog} = useContext(contextoCarrito)  
   const navigate =useNavigate();
@@ -17,7 +15,9 @@ export const LogIn = () => {
             )
 
         .finally (
+          
           navigate("/",{replace:true})
+          
                   )    
     }
 
