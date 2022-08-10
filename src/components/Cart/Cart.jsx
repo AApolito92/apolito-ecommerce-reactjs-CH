@@ -5,7 +5,9 @@ import { Link } from 'react-router-dom';
 import { addDoc, collection, getFirestore } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
 import { app } from '../../firebase/firebase';
-
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+const MySwal = withReactContent(Swal)
 
 
 
@@ -34,10 +36,15 @@ function Cart() {
     const base = getFirestore();
     const orderColl = collection(base,"buyerOrders");
     newUser.estado="generada";
-    addDoc(orderColl,newUser)
-    .then((res)=>     
-    setIdCompra(res.id))    
-
+   await addDoc(orderColl,newUser)
+    .then((res)=> {    
+    setIdCompra(res.id)
+    MySwal.fire({
+      icon: "success",
+      title: <p>Compraste bro</p>,
+      text: `A tu compra se le asigno el id: ${res.id}, en tu perfil vas a poder chequear que compraste y cuanto te dolio`,  
+  })}
+)  
     setProductList([]);
    
 
@@ -74,13 +81,7 @@ console.log(idCompra,"wot");
 
 
      </>
-     }
-
-    
-          <>      
-          <h4 > {`Id de compra: ${idCompra} `}</h4>  
-          </>
-    
+     }    
     </>
   )
 }
