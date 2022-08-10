@@ -4,6 +4,7 @@ import { CartWidget } from './CartWidget/CartWidget';
 import { Link } from 'react-router-dom';
 import { db,app } from '../../firebase/firebase';
 import {getDocs, collection} from "firebase/firestore"
+import "animate.css"
 import { getAuth,onAuthStateChanged,signOut } from 'firebase/auth';
 const auth = getAuth(app);
 
@@ -47,7 +48,7 @@ export const Navbar = () => {
         <div className='HeaderHome'>
           
             <Link to="/" className='nameTitle'> <h1>Sileno Growshop</h1> </Link>
-            <ul>
+            <ul className='animate__animated animate__fadeInRightBig'>
                <li> <Link to="/">Inicio</Link></li>
                <li><p>Productos</p>
                 <ul>

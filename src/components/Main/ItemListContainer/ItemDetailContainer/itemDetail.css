@@ -36,7 +36,7 @@ h5{
     align-items: center;
     border: 1px solid black;
     width: 90%;
-    margin: auto;   
+    margin: 5% auto auto auto;   
     padding-top: 2%;   
     padding-bottom: 2%; 
     /*text-align: center;*/
