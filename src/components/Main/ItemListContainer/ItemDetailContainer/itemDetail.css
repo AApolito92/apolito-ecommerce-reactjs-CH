@@ -58,9 +58,13 @@
 
 #addButton{
     background: none;
+    margin: auto;
     margin-top: 2%;
-    color: white;
-    border-radius: 3px;
+    color: #FFF;
+    border-radius: 3px; 
+  
+    
+
 }
 
 .itemCardCount #addButton:hover{
