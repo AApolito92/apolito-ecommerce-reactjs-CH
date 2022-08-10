@@ -7,8 +7,8 @@ import IconButton from '@mui/material/IconButton';
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   '& .MuiBadge-badge': {
-    right: -3,
-    top: 13,
+    right: -9,
+    top: 2,
     border: `2px solid ${theme.palette.background.paper}`,
     padding: '0 4px',
   },
@@ -20,7 +20,7 @@ export const CartWidget = () => {
   const {qtyProduct} = useContext(contextoCarrito);
 
   return ( 
-            <div>
+            <div id='cartWidget'>
               <IconButton aria-label="cart">
                <StyledBadge badgeContent={qtyProduct} color="secondary">
                 <ShoppingCartIcon />

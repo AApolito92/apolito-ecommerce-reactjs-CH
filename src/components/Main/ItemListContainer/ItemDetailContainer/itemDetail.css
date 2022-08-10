@@ -14,6 +14,21 @@
     color: white;
 }
 
+h5{
+    margin: auto;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.detailCard div p {
+    padding: 0 2% 0 2%;
+    text-align: justify;
+}
+
+.detailCard div :nth-child(3) {
+   text-align: center;
+}
+
 .detailContainer{
     display: flex;
     flex-direction: row; 
@@ -21,24 +36,25 @@
     align-items: center;
     border: 1px solid black;
     width: 90%;
-    margin: auto;   
+    margin: 5% auto auto auto;   
     padding-top: 2%;   
     padding-bottom: 2%; 
-    text-align: center;
+    /*text-align: center;*/
     background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(78, 73, 73, 0));
     -webkit-backdrop-filter: blur(20px);
     backdrop-filter: blur(20px);
     box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37);
     border: 1px solid rgba(255,255,255,0.18);
     border-radius: 32px; 
-
-
+   
 
 }
 
 .detailContainer img {
     width: 30%;
     margin: auto;
+    border-radius: 20px;
+    
 }
 
 
@@ -56,15 +72,16 @@
     font-size: 1em;
 }
 
+.itemCardCount {
+    text-align: center;
+}
+
 #addButton{
     background: none;
-    margin: auto;
-    margin-top: 2%;
     color: #FFF;
     border-radius: 3px; 
-  
-    
-
+    margin: 2% 0 2% 0;
+    color: white;
 }
 
 .itemCardCount #addButton:hover{

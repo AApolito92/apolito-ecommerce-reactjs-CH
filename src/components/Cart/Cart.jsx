@@ -1,50 +1,56 @@
-import React,{useContext, useState} from 'react'
+import React,{useContext,useState} from 'react'
 import { contextoCarrito } from '../Main/Context/ContextCart'
 import ItemCart from './ItemCart';
 import { Link } from 'react-router-dom';
-import { addDoc, collection, getFirestore, serverTimestamp } from 'firebase/firestore';
+import { addDoc, collection, getFirestore } from 'firebase/firestore';
+import { getAuth } from 'firebase/auth';
+import { app } from '../../firebase/firebase';
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+const MySwal = withReactContent(Swal)
 
 
+
+const auth = getAuth(app);
 
 function Cart() {
 
+
+
+  const {cartProductList, totalPrice,deleteItem,setProductList,addItem,subtractItem,userLog} = useContext(contextoCarrito);
+  console.log(auth.currentUser,"usuario logeadito en cart")
+  console.log(userLog,"usuario logeadito context")
+
   
-  const {cartProductList, totalPrice,deleteItem,setProductList,addItem,subtractItem} = useContext(contextoCarrito);
-  //console.log (cartProductList, "consola cart");
-  //console.log(totalPrice,"precio total");
-  //pasar initial al contexto ? 
+  const newUser = {...userLog[0],total:totalPrice,items:cartProductList.map(product=> ({id:product.id, name: product.name, precio: product.precio, cantidad:product.qty})),}
+  const [ idCompra, setIdCompra] = useState("");
 
-  const initialUser = {
-    name: "",
-    mail: "",
-    address:"",
-    items: cartProductList.map(product=> ({id:product.id, name: product.name, precio: product.precio, cantidad:product.qty})),
-    date:serverTimestamp(),
-    total: totalPrice
-  }
 
-  const [user, setUser] = useState(initialUser);
-  
-  const captureData = (e) => {
-    const {name , value} = e.target ;
-    setUser({...user,[name]:value})
-    //console.log(user);
-  }
+  console.log(newUser,"newuser")
 
-  const saveData = async(e) => {
-    e.preventDefault();
-    console.log(user);
+
+  const finalizarCompra = async(e) => {
+
+
+    e.preventDefault();    
     const base = getFirestore();
     const orderColl = collection(base,"buyerOrders");
-    addDoc(orderColl,user)
-    .then(({id})=> 
-    
-    console.log(id,"id compra"));   
-
+    newUser.estado="generada";
+   await addDoc(orderColl,newUser)
+    .then((res)=> {    
+    setIdCompra(res.id)
+    MySwal.fire({
+      icon: "success",
+      title: <p>Compraste bro</p>,
+      text: `A tu compra se le asigno el id: ${res.id}, en tu perfil vas a poder chequear que compraste y cuanto te dolio`,  
+  })}
+)  
     setProductList([]);
-    setUser(initialUser);
+   
 
   }
+
+console.log(idCompra,"wot");
 
   return (
     
@@ -61,19 +67,21 @@ function Cart() {
      <p>{`Total compra: $${totalPrice}`} </p>
 
       <div>
-        <form onSubmit={saveData}>
-          <input type="text" name ="name" placeholder='Nombre Completo' onChange={captureData} value={user.name} required />
-          <input type="email" name= "mail" placeholder='Correo electronico' onChange={captureData} value={user.mail} required/>
-          <input type="text" name='address' placeholder='Dirección' onChange={captureData} value={user.address} required/>
-          <button type='submit'> Finalizar compra!</button>
-        </form>
-      </div>
-     </>
-     }
 
-    
-    
-    
+        { auth.currentUser?
+         <button onClick={finalizarCompra}> {`Finalizar compra como ${auth.currentUser.email}`}</button>
+         :
+         <Link to="/login"> <button>Ingresar con tu usuario para finalizar la compra</button>  </Link>
+         }
+
+            
+
+                 
+      </div>
+
+
+     </>
+     }    
     </>
   )
 }

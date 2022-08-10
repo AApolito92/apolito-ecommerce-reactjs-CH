@@ -2,7 +2,7 @@ import React,{useState} from 'react'
 
 function ItemCart({producto, deleteItem,addItem,subtractItem  }) {
 
-    console.log(producto,"item cart");
+    //console.log(producto,"item cart");
 
     const {name,qty,precio,id,stock} = producto ;
 

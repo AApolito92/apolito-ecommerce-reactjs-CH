@@ -13,9 +13,7 @@ export const ItemListContainer = ({greeting}) => {
   const [mostrar, setMostrar] = useState(true)  ;
   const {categoriaId} = useParams();
 
- // console.log (categoriaId);
-
-//console.log(db);
+ 
 
   useEffect (()=> {
 
@@ -37,7 +35,6 @@ export const ItemListContainer = ({greeting}) => {
         }
       })
       setProductList(lista);
-      //console.log(lista);
       setMostrar(false);   
 
     })

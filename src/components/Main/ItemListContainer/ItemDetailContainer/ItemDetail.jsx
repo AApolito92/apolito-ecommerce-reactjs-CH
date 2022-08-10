@@ -4,7 +4,7 @@ import { ItemCount } from '../ItemCount';
 import { useState,useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { contextoCarrito } from '../../Context/ContextCart';
-
+import "animate.css"
 
 const ItemDetail = ({itemDetail}) => {
 
@@ -28,11 +28,11 @@ const onAdd = (cantidad) => {
    
 
   return (
-    <div className='detailContainer' >
+    <div className='detailContainer animate__animated animate__fadeInTopLeft' >
         <img src={img} alt={name} />
         <div className='detailCard'>        
         <div id={id}>
-        <p>{name}</p>
+        <h5>{name}</h5>
         <p>{detail}</p>
         <p>${precio}</p>
 
