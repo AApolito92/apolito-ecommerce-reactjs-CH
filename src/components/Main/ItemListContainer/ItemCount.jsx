@@ -1,6 +1,8 @@
 import React from 'react'
 import { useState } from 'react'
-
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+const MySwal = withReactContent(Swal)
 
 export const ItemCount = ({inicial, stock, onAdd}) => {
 
@@ -15,9 +17,7 @@ export const ItemCount = ({inicial, stock, onAdd}) => {
       setContador( contador - 1)
      
       }
-       else {
-        console.log("error")
-      }
+       
   }
   const HandlerAdd = () => {
     if( contador < stock )  {
@@ -25,7 +25,14 @@ export const ItemCount = ({inicial, stock, onAdd}) => {
       
       } 
       else {
-        console.log("error")
+        MySwal.fire({
+          icon: 'error',
+          width:300,
+          heightAuto:200,
+          title: 'perdon!',
+          text: 'Nos quedamos sin stock',
+          
+        })
       }
  }
 

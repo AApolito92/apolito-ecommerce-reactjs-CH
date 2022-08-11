@@ -50,4 +50,3 @@ Loaders customizables para momentos de carga de la pagina.
 ## Authors
 
 [Alan Apolito](https://github.com/AApolito92)
-
