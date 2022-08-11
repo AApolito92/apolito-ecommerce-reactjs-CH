@@ -38,7 +38,7 @@ h5{
     align-items: center;
     border: 1px solid black;
     width: 90%;
-    margin: 7% auto auto auto;  
+    margin: 5% auto 2% auto;  
     padding: 2% 0 2% 0;     
     background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(78, 73, 73, 0));
     -webkit-backdrop-filter: blur(20px);
@@ -81,7 +81,7 @@ h5{
     color: #FFF;
     border-radius: 3px; 
     margin: 2% 0 2% 0;
-    color: white;
+    
 }
 
 .itemCardCount #addButton:hover{

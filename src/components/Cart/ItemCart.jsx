@@ -1,4 +1,8 @@
 import React,{useState} from 'react'
+import DeleteIcon from '@mui/icons-material/Delete';
+
+
+
 
 function ItemCart({producto, deleteItem,addItem,subtractItem  }) {
 
@@ -27,11 +31,13 @@ const HandlerQty = (value) => {
     
 
   return (
-    <div>
-        <p>{name} x {qty}</p>
-        <p>total: ${(qty*precio)}</p>
+    <div className='cartItem'>
+        <p>{`${name} x ${qty} - $${(qty*precio)}`}</p>
+        <div className='buttonsCart'>
         <button onClick={() => HandlerQty("-")}>-</button><span>{contador}</span><button onClick={() => HandlerQty("+")}>+</button>
-        <button onClick={HandlerDelete}>Eliminar item</button>        
+        <button onClick={HandlerDelete}><DeleteIcon fontSize='small' color='action'/></button>  
+          
+        </div>   
     </div>
   )
 }

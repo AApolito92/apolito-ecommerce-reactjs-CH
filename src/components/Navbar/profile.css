@@ -1,24 +1,38 @@
 .profileHolder {
+    min-height: 45vw;
     width: 95%;
-    margin: auto;
-    display: grid;
-    grid-template-areas: 
-    "buyGrid  personalGrid"
-    "buyGrid";
+    margin: 3% auto 3% auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    text-align: center;
+    align-items: center;
     
 }
 
-.personalData{
-    grid-area: "personalGird";
+.buyData div {
+    border-bottom: 1px solid white;
 }
 
-.buyData {
-    grid-area: "buyGrid";
+
+
+
+.buyData div ul {
+    display: block;   
+    margin: auto;
+    
+}
+
+.buyData div ul li {
+    margin: auto;
+    width: 100%;
+  
 }
 
 
 .personalData, .buyData {
-    border: 1px solid white;
+    width: 40%;
     margin-top: 5%;
     background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(78, 73, 73, 0));
     -webkit-backdrop-filter: blur(20px);
@@ -27,4 +41,8 @@
     border: 1px solid rgba(255,255,255,0.18);
     border-radius: 32px;   
     color: white;
+}
+
+.personalData {
+    align-self: baseline;
 }

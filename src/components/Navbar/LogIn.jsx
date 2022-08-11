@@ -5,7 +5,7 @@ import { contextoCarrito } from '../Main/Context/ContextCart'
 
 
 export const LogIn = () => {
-  const {setLogUser,userLog} = useContext(contextoCarrito)  
+  const {setLogUser} = useContext(contextoCarrito)  
   const navigate =useNavigate();
   const [register,SetRegister] = useState(false);
     
@@ -21,10 +21,6 @@ export const LogIn = () => {
                   )    
     }
 
-
-     
-
-      console.log(userLog,"usuario en context");
 
   return (
     <div>

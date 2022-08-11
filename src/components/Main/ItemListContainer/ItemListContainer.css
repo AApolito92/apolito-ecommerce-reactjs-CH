@@ -4,7 +4,7 @@
     border: 1px solid transparent;   
     text-align: center;
     padding-top: 2%;
-    min-height: 100vh;
+    min-height: 75vh;
     
   }
 
@@ -24,4 +24,9 @@ a {
 
  h3 {
     text-align: center;
+}
+
+.loaderItemlist{
+    margin: auto;
+    
 }

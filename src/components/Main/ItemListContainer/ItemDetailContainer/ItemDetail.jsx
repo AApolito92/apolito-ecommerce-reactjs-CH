@@ -6,26 +6,20 @@ import { Link } from 'react-router-dom';
 import { contextoCarrito } from '../../Context/ContextCart';
 import "animate.css"
 
+
 const ItemDetail = ({itemDetail}) => {
 
-const {img,name,id,detail,precio,stock} = itemDetail
-
-//console.log (itemDetail, "detalle item")
-
+const {img,name,id,detail,precio,stock} = itemDetail ;
 const [finalizar, setFinalizar] = useState(false) ;
-
 const {addItem} = useContext(contextoCarrito);
 
 
 const onAdd = (cantidad) => {  
-  //console.log(cantidad ,"cantidad tipo waat")
-  //console.log(`Compraste ${cantidad} unidades`);
+  
   setFinalizar(true);
   const newItem = {...itemDetail, qty: cantidad }
   addItem(newItem,cantidad)
- }
-
-   
+ }   
 
   return (
     <div className='detailContainer animate__animated animate__fadeInTopLeft' >

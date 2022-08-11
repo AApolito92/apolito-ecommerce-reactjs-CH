@@ -17,8 +17,7 @@ export const  getUser = async ()=>{
       })
       filtrado = docs.filter(el => el.email === auth.currentUser.email)
              
-      
-      console.log(filtrado,"array filtrado")
+    
 
      } catch (error) {
       console.error("error");
@@ -40,7 +39,7 @@ export async function createOrLog(e,valorRegister){
  
   if(valorRegister){
       await createUserWithEmailAndPassword(auth,email,password);  
-      console.log("registrado")
+   
 
       const user = {
         nombre:  e.target.nombre.value,
@@ -60,9 +59,7 @@ export async function createOrLog(e,valorRegister){
        await signInWithEmailAndPassword(auth,email,password);
        const filtrado = getUser(email) ;
   
-      console.log(auth,"usuario logeado?");
-      console.log(email,"correo")
-      console.log(filtrado,"filtrado funcion")
+     
       
       return filtrado;
     

@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'
 import ItemDetail from './ItemDetail'
 import { db } from '../../../../firebase/firebase'
 import {doc, getDoc, collection} from "firebase/firestore"
-
+import { FadeLoader } from 'react-spinners'
 
 function Itemdetailcontainer() {
 
@@ -36,7 +36,7 @@ function Itemdetailcontainer() {
     <div className='mainBody'>
     
 
-       { mostrar ? <p>Loading detalle...</p> : <ItemDetail itemDetail= {itemDetail}/> }   
+       { mostrar ? <FadeLoader className='loaderItemlist' color="#e9dfdf" loading/> : <ItemDetail itemDetail= {itemDetail}/> }   
 
 
     </div>

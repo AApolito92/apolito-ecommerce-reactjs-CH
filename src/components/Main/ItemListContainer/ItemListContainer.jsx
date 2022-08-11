@@ -5,6 +5,7 @@ import './ItemListContainer.css'
 import { useParams } from 'react-router-dom';
 import { db } from '../../../firebase/firebase';
 import {getDocs, collection, query,where} from "firebase/firestore"
+import { FadeLoader } from 'react-spinners';
 
 
 export const ItemListContainer = ({greeting}) => {
@@ -51,10 +52,7 @@ export const ItemListContainer = ({greeting}) => {
         <>
         <h2>Bienvenidos a {greeting}</h2>
         <h3>Productos</h3>
-       { mostrar ? <p>Loading...</p> : <ItemList productList={productList}/>}   
-
-         
-          
+       { mostrar ? <FadeLoader className='loaderItemlist' color="#e9dfdf" loading/> : <ItemList productList={productList}/>}           
         </>
     </div>
   )

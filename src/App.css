@@ -1,12 +1,13 @@
 
 
 html {
-  background-color: red;
+  background-color: black;
 }
 
 
 
 #root {
   background-image: url(../public/concrete_wall.webp);
+  
 
 }

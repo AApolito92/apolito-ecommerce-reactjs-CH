@@ -5,7 +5,6 @@ import { collection,getDocs } from 'firebase/firestore'
 import { getAuth } from 'firebase/auth'
 import "./profile.css"
 
-
 const auth = getAuth(app);
 
 
@@ -14,10 +13,8 @@ export const Profile = () => {
 
  
 const {userLog} = useContext(contextoCarrito)
-console.log(userLog,"log profile")
 const usuarioBO = userLog[0];
 const [buys,setBuys] = useState([])
-
 
 
 useEffect (()=> {
@@ -30,7 +27,6 @@ useEffect (()=> {
         })
         filtrado = docs.filter(el => el.email === auth.currentUser.email)               
         
-        console.log(filtrado,"array filtrado compras")
   
         setBuys(filtrado);
   }
@@ -40,31 +36,28 @@ useEffect (()=> {
 
 
 
-
-console.log(buys,"log items arrays");
-
   return (
     <div className='profileHolder'>
 
-      
       {usuarioBO !== undefined?
         <>                
         <div className='personalData'>
-          <h3>Datos personales</h3>
-          <p>{usuarioBO.nombre} </p>
-          <p>{usuarioBO.email} </p>
-          <p>{usuarioBO.direccion} </p>
-          <p>{`fecha de registro: ${usuarioBO.registro}`}</p>
+          <h4>Datos personales</h4>
+          <p>{`Nombre: ${usuarioBO.nombre}`} </p>
+          <p>{`Correo electronico: ${usuarioBO.email}`} </p>
+          <p>{`Dirección: ${usuarioBO.direccion}`} </p>
+          <p>{`Fecha de registro: ${usuarioBO.registro}`}</p>
         </div>
         
         <div className='buyData'>
           <h3>Compras</h3>
             
         {buys.map(product => 
-          <div>      
-          <h4 key={product.id}> {`Id de compra: ${product.id} `}</h4>          
-          <ul> {product.items.map(tst => <li key={tst.id}>   { `${tst.name} x ${tst.cantidad}`} </li> )}</ul>
-          <p>{`total de la compra: $${product.total}`} </p>
+          <div key={product.id}>      
+          <h4 > {`Id de compra: ${product.id} `}</h4>          
+          <ul> {product.items.map((tst,index) => 
+          <li key={index}>   { `${tst.name} x ${tst.cantidad}`} </li> )}</ul>
+          <p>{`Total de la compra: $${product.total}`} </p>
           
           </div>
           )}
@@ -78,5 +71,9 @@ console.log(buys,"log items arrays");
         }
         
     </div>
+
+
+
+
   )
 }

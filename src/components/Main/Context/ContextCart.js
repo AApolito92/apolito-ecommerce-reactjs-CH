@@ -17,15 +17,14 @@ const CustomProvider = ({children}) => {
     const [cartProductList, setProductList] = useState([]);
     const [qtyProduct, setQtyProducts] = useState(0);
     const [totalPrice, setTotalPrice] = useState(0);
-    const [userLog,setLogUser]= useState([]);
+    const [userLog,setLogUser]= useState({});
 
     
-console.log(userLog,"log user context");
+
 
 
     useEffect(() => {
         getQtyProd();    
-        //console.log("render")
         //eslint-disable-next-line react-hooks/exhaustive-deps
     },[cartProductList])
 

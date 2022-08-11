@@ -16,11 +16,7 @@ export const Navbar = () => {
  
   onAuthStateChanged(auth,(userFirebase)=> {
     if(userFirebase){
-      //console.log(userFirebase,"log user");
       setlogInUser(userFirebase);
-     
-      //console.log(auth,"log auth solo");
-      //console.log(auth.currentUser,auth.currentUser.email)
     }else {
       setlogInUser(null);
     }
@@ -48,7 +44,7 @@ export const Navbar = () => {
         <div className='HeaderHome'>
           
             <Link to="/" className='nameTitle'> <h1>Sileno Growshop</h1> </Link>
-            <ul className='animate__animated animate__fadeInRightBig'>
+            <ul className='animate__animated animate__fadeIn'>
                <li> <Link to="/">Inicio</Link></li>
                <li><p>Productos</p>
                 <ul>
